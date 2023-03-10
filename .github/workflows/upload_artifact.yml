@@ -1,1 +1,19 @@
-...
+name: upload to jfrog
+
+on:
+  workflow_call:
+
+jobs:
+  save:
+      name: save to jfrog
+      runs-on: ubuntu-latest
+    
+      steps:
+      - uses: jfrog/setup-jfrog-cli@v3
+        env:
+           JF_URL: ${{ secrets.JF_URL }}
+           JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+      - run: |
+           #jf rt ping
+    
+    
