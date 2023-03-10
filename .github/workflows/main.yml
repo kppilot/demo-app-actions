@@ -35,6 +35,10 @@ jobs:
   call-deployStaging-workflow:
    needs: call-test-workflow
    uses: ./.github/workflows/deploy-staging.yml
+   
+  call-saveartifact-workflow:
+   needs: call-deployStaging-workflow
+   uses: ./.github/workflows/upload_artifact.yml
  
  # call depoly ecs workflow
   #call-deployECS-workflow:
