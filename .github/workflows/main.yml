@@ -34,6 +34,7 @@ jobs:
 # call deploy to staging workflow
   call-deployStaging-workflow:
    #needs: call-test-workflow
+   needs : call-build-workflow
    uses: ./.github/workflows/deploy-staging.yml
    
   call-saveartifact-workflow:
