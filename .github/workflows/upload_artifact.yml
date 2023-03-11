@@ -16,7 +16,7 @@ jobs:
       - run: |
            #jf rt ping
            jf rt dl artifacts/
-           jf rt u aether artifacts/
+           jf rt u target artifacts/
            jf rt bp
     
     
