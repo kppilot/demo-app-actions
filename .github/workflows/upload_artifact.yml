@@ -1,7 +1,7 @@
 name: upload to jfrog
 
 on:
-  workflow_dispatch:
+  workflow_call:
 
 jobs:
   save:
