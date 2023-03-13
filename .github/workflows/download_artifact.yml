@@ -18,6 +18,6 @@ jobs:
           
       - name: Run JFrog CLI
         run: |
-          jf rt dl  "https://actions.jfrog.io/ui/builds" --sort-by=created --sort-order=desc --limit=1
+          jf rt dl  "https://actions.jfrog.io/ui/builds/Main/?buildRepo=artifactory-build-info" --sort-by=created --sort-order=desc --limit=1
           
         
