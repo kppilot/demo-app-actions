@@ -1,5 +1,6 @@
 name: "Upload to jfrog"
-on: workflow_call
+on: 
+  workflow_call:
 
 jobs:
   saveartifact:
