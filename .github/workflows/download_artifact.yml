@@ -19,7 +19,7 @@ jobs:
       - uses: actions/download-artifact@v3
       - name: Run JFrog CLI
         run: |
-          jf rt dl  libs-snapshot-local/com/actions/demoapp/demoapp/artifacts/ --sort-by=created --sort-order=desc --limit=1
+          jf rt dl  libs-snapshot-local/com/actions/demoapp/demoapp/artifacts/  ./workflows/ --sort-by=created --sort-order=desc --limit=1
           
       - name: 'Echo download path'
         run: echo ${{steps.download.outputs.download-path}}
