@@ -12,7 +12,7 @@ jobs:
       #- name: try
       - run : | 
              mkdir -p artifacts
-             cp "./target"/*.jar artifacts
+             cp "../target"/*.jar artifacts
              
             
              cd artifacts && ls
