@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.actions.demoapp.AppTest" time="0.018" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.actions.demoapp.AppTest" time="0.031" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IN"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.18_10\bin"/>
-    <property name="sun.java.command" value="C:\Users\asishe\AppData\Local\Temp\surefire3000429614327679433\surefirebooter18001530677322454941.jar C:\Users\asishe\AppData\Local\Temp\surefire3000429614327679433 2023-03-10T10-54-06_934-jvmRun1 surefire16514061180173433099tmp surefire_02545041882508118944tmp"/>
+    <property name="sun.java.command" value="C:\Users\asishe\AppData\Local\Temp\surefire14282178647598872294\surefirebooter12343600449493821465.jar C:\Users\asishe\AppData\Local\Temp\surefire14282178647598872294 2023-03-13T15-54-20_497-jvmRun1 surefire1336450783901834944tmp surefire_08491530691401756990tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\syncron\new\demoapp\target\test-classes;C:\syncron\new\demoapp\target\classes;C:\Users\asishe\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\asishe\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -33,7 +33,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\asishe\AppData\Local\Temp\surefire3000429614327679433\surefirebooter18001530677322454941.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\asishe\AppData\Local\Temp\surefire14282178647598872294\surefirebooter12343600449493821465.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.18+10-LTS"/>
@@ -53,12 +53,12 @@
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
     <property name="sun.os.patch.level" value=""/>
-    <property name="java.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.18_10\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Amazon Corretto\jdk11.0.18_10\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\PowerShell\7\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\apache-maven-3.9.0\bin;C:\Program Files\Go\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\GitHub CLI\;C:\Program Files\Amazon\AWSCLIV2\;C:\Program Files (x86)\gnupg\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\Amazon Corretto\jdk11.0.18_10\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\PowerShell\7\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\apache-maven-3.9.0\bin;C:\Program Files\Go\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\GitHub CLI\;C:\Program Files\Amazon\AWSCLIV2\;C:\Program Files (x86)\gnupg\bin;C:\ProgramData\chocolatey\bin;;C:\Program Files\Amazon\ECSCLI;."/>
+    <property name="java.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.18_10\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Amazon Corretto\jdk11.0.18_10\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\PowerShell\7\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\apache-maven-3.9.0\bin;C:\Program Files\Go\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\GitHub CLI\;C:\Program Files\Amazon\AWSCLIV2\;C:\Program Files (x86)\gnupg\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\Amazon Corretto\jdk11.0.18_10\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\PowerShell\7\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\apache-maven-3.9.0\bin;C:\Program Files\Go\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\GitHub CLI\;C:\Program Files\Amazon\AWSCLIV2\;C:\Program Files (x86)\gnupg\bin;C:\ProgramData\chocolatey\bin;;C:\Program Files\Amazon\ECSCLI;C:\Users\asishe\AppData\Local\Programs\Microsoft VS Code\bin;."/>
     <property name="java.vm.info" value="mixed mode"/>
     <property name="java.vendor" value="Amazon.com Inc."/>
     <property name="java.vm.version" value="11.0.18+10-LTS"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="com.actions.demoapp.AppTest" time="0.001"/>
+  <testcase name="shouldAnswerWithTrue" classname="com.actions.demoapp.AppTest" time="0"/>
 </testsuite>

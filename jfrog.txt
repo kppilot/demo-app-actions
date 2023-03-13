@@ -1,0 +1,35 @@
+mvn archetype:generate -DgroupId=com.actions.demoapp -DartifactId=demoapp -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+
+cmVmdGtuOjAxOjE3MDk5NjExMzY6dVlVQlZ5ekVKOHFPclZScVVPWTU5dmpCbHFU
+
+eyJ2ZXIiOiIyIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYiLCJraWQiOiI3S3N2anFTZWtnb0VpYmhaeXRNSTlMcTZhOEZUY2x0bmZYa0s5ai1VWTF3In0.eyJzdWIiOiJqZmFjQDAxZ3YyZmE0cTY1dGM1MHlhOTZ5bnkwNG1lXC91c2Vyc1wva2FtYWthemVwaWxvdDAwQGdtYWlsLmNvbSIsInNjcCI6ImFwcGxpZWQtcGVybWlzc2lvbnNcL3VzZXIiLCJhdWQiOiIqQCoiLCJpc3MiOiJqZmZlQDAxZ3YyZmE0cTY1dGM1MHlhOTZ5bnkwNG1lIiwiaWF0IjoxNjc4NDI5MjQzLCJqdGkiOiIxYzA0MGYzYi1mMzI4LTQzYmQtYTk2MC1kMWQ1ZmM3MmRlNzgifQ.mh7g9TRhYYGTrLFw97PHVaT5-an37UPTY8-V1hoSal1wHpADsf4015WeZdFJKlitFMXFTYXmR_yiPRpnVdfjYkdzxFceqlQqAsYtNff9EawphR4HUzM8xKVktMB9PobiT06gYacK3DNU4OIQ1ETWqpmu7Ce9k5DxjwNZt8LIyxnuKxRwhDdy3xFcsrgzHwdfJccWlUgoasxDdcvm1Y6Gi_vDDBuGTcW29p_xyoyJj2TdxHoZbIIIiCi8mSfRq8pLrOr7KfYEh0wN9Fv6vJ5TJBMKaCevDS5IrS5JmIngXpDKosYh5D9geJqR1nF16U3xamSQzOJIcpZwb1ErzPPT1g
+
+eyJ2ZXIiOiIyIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYiLCJraWQiOiI3S3N2anFTZWtnb0VpYmhaeXRNSTlMcTZhOEZUY2x0bmZYa0s5ai1VWTF3In0.eyJzdWIiOiJqZmFjQDAxZ3YyZmE0cTY1dGM1MHlhOTZ5bnkwNG1lXC91c2Vyc1wva2FtYWthemVwaWxvdDAwQGdtYWlsLmNvbSIsInNjcCI6ImFwcGxpZWQtcGVybWlzc2lvbnNcL3VzZXIiLCJhdWQiOiIqQCoiLCJpc3MiOiJqZmZlQDAxZ3YyZmE0cTY1dGM1MHlhOTZ5bnkwNG1lIiwiaWF0IjoxNjc4NTU2NzM1LCJqdGkiOiJkYTliODE0OS1iODcyLTQ2MmEtYjNhYy05NzQxNmI4YTVmOTAifQ.L7-Z8XtadKZA8VRiZTUHV45hLBFnuXPVMKFJrjgoZF_LdGlODKcj96VvIhN-oXMrrI1y_e4Fe2kC5ZQ-coytVFMSjY5L04oJ70RKmAsR7dmFL2d_oO2sKrvbtDouAHjsm_bIZn8pS_hekkq6HBzS_ImbHn2i3yocyUhqqURLJ4yY9-cldMiynkAEVcSmYD-Lf1-SxEqEn749myS9xoHEFHKPNEnera-c-uuExySxMhvDH2ZrUw7L6CIW57JBsnUgN_dMNSmoolJ4f0Z6GqQXg28Ahi1g8wrsnYgOP8-ProahsiVxKt1jQxIWsSuF6pd0_SEjNG196EDjc_3TtuC2Qw
+
+
+
+name: upload to jfrog
+
+on:
+  workflow_call:
+
+jobs:
+  save:
+      name: save to jfrog
+      runs-on: ubuntu-latest
+    
+      steps:
+      - uses: jfrog/setup-jfrog-cli@v3
+        env:
+           JF_URL: ${{ secrets.JF_URL }}
+           JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+      - run: |
+           #jf rt ping
+           jf rt dl artifacts/
+           jf rt u target artifacts/
+           jf rt bp
+    
+Props Authentication Token not found
+
+admin
+eyJ2ZXIiOiIyIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYiLCJraWQiOiI3S3N2anFTZWtnb0VpYmhaeXRNSTlMcTZhOEZUY2x0bmZYa0s5ai1VWTF3In0.eyJzdWIiOiJqZmFjQDAxZ3YyZmE0cTY1dGM1MHlhOTZ5bnkwNG1lXC91c2Vyc1wva2FtYWthemVwaWxvdDAwQGdtYWlsLmNvbSIsInNjcCI6ImFwcGxpZWQtcGVybWlzc2lvbnNcL2FkbWluIiwiYXVkIjoiKkAqIiwiaXNzIjoiamZmZUAwMWd2MmZhNHE2NXRjNTB5YTk2eW55MDRtZSIsImlhdCI6MTY3ODU1OTI0MywianRpIjoiMzZmMjFiZDAtMzQ3ZS00MmY1LWI2MmQtODVmYzNkZjJmNjYwIn0.hHXxHEl_r3qJgoCcAwX4FkcHrRTjwGkI4vq9f4I6ZGyN3MMfjO6AGq21_bHbr_Hc1FHJnI4jttCb4ZMXsgX-gxYCYoLAXIDNSAye5yLn1xHBvSF5geLQEdp6MuYBQ9ZeLNgVSUm3slg5gC-Mu0mvfF8ZGUKJ2T65_oU0utIoK7-GrA8utcaZgaQICJnoOFpyOr0AnIYoDcwxp0kMDmcvtOItcTboLBgoGPkpcsf6__bM7pUCsde4NrbIpOIQcCcP7EoJzAZ7uKku3UsDKlaUfJM6zsQS-Gpfd5i7gJFPu7FjXPuzjGSuZioJkmC7JmdQZIO2fV2IYo8BBGUkZIWvdQ
