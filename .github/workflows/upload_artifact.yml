@@ -2,30 +2,38 @@ name: "Upload to jfrog"
 on: workflow_call
 
 jobs:
-  build:
+  saveartifact:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup JFrog CLI
-        uses: jfrog/setup-jfrog-cli@v3
-        env:
+    
+      - uses: actions/checkout@v3
+      - run: mkdir artifacts && cp target/*.jar artifacts
+             cd artifacts && ls
+        
+      - uses: actions/upload-artifact@v2
+        with:
+          name: github-actions-artifact
+          path: artifacts
+          
+        #- name: Setup JFrog CLI
+       # uses: jfrog/setup-jfrog-cli@v3
+        #env:
           #JF_USER: ${{ secrets.JF_USER }}
           #JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
-          JF_ENV_1: ${{ secrets.JF_SECRET_ENV_1 }}
-          JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
-      #- run:    mkdir temp
-      - uses: actions/upload-artifact@v3
-        with:
-         name: Package
-         #path: temp 
-      - name: Run JFrog CLI
-        run: |
-          # Collect environment variables for the build
-          jf rt bce
+         # JF_ENV_1: ${{ secrets.JF_SECRET_ENV_1 }}
+         # JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+           
+      #- uses: actions/upload-artifact@v3
+        #with:
+        # name: Package
+        # path: temp 
+      #- name: Run JFrog CLI
+       # run: |
+         # # Collect environment variables for the build
+        #  jf rt bce
           # Collect VCS details from git and add them to the build
-          jf rt bag
+        #  jf rt bag
           # Publish build info
-          jf rt bp
+         # jf rt bp
 
-          jf rt u "temp/" libs-snapshot-local/com/actions/demoapp/demoapp/
+         # jf rt u "temp/" libs-snapshot-local/com/actions/demoapp/demoapp/
