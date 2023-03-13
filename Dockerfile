@@ -1,6 +1,9 @@
-FROM alpine/git
-WORKDIR /app
-RUN git clone https://github.com/sheikhasim/demo-app-actions.git
+FROM alpine/git as MT
+COPY pom.xml /tmp/
+COPY src /tmp/src/
+WORKDIR /tmp/
+RUN mvn package
+
 
 FROM maven:3.5-jdk-8-alpine
 WORKDIR /app
@@ -8,6 +11,5 @@ COPY --from=0 /app/demo-app-actions /app
 RUN mvn install 
 
 FROM openjdk:8-jre-alpine
-WORKDIR /app
-COPY --from=1 /app/target/demoapp-1.0-SNAPSHOT.jar /app 
+COPY --from=MT/tmp/target/demoapp-1.0-SNAPSHOT.jar /deployments/app.jar 
 CMD ["java -jar demoapp-1.0-SNAPSHOT.jar"] 
