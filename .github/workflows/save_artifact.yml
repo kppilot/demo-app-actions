@@ -1,7 +1,7 @@
 name: "Upload to jfrog"
 on: 
   workflow_call:
-
+ #&& cp "target"/*.jar artifacts
 jobs:
   saveartifact:
     runs-on: ubuntu-latest
@@ -11,7 +11,8 @@ jobs:
       
       #- name: try
       - run : | 
-             mkdir -p artifacts && cp "target"/*.jar artifacts
+             mkdir -p artifacts 
+            
              cd artifacts && ls
         
       - uses: actions/upload-artifact@v2
