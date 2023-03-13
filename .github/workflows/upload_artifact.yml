@@ -14,7 +14,7 @@ jobs:
           #JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
           JF_ENV_1: ${{ secrets.JF_SECRET_ENV_1 }}
           JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
-      - run:    mkdir temp && cp target/*.jar temp
+      - run:    mkdir temp
       - uses: actions/upload-artifact@v3
         with:
          name: Package
