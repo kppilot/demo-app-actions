@@ -7,7 +7,7 @@ jobs:
     steps:
     
       - uses: actions/checkout@v3
-      - run: mkdir artifacts && cp target/*.jar artifacts
+      - run: mkdir -p artifacts && cp target/*.jar artifacts
              cd artifacts && ls
         
       - uses: actions/upload-artifact@v2
