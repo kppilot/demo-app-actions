@@ -10,7 +10,8 @@ jobs:
       #- uses: actions/checkout@v3
       
       #- name: try
-      - run : mkdir -p artifacts && cp target/*.jar artifacts
+      - run : | 
+             mkdir -p artifacts && cp target/*.jar artifacts
              cd artifacts && ls
         
       - uses: actions/upload-artifact@v2
