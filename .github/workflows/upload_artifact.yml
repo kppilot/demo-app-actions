@@ -24,4 +24,4 @@ jobs:
           # Publish build info
           jf rt bp
 
-          jf rt u "build/" libs-snapshot-local/com/actions/demoapp/demoapp/
+          jf rt u "build/" https://actions.jfrog.io/ui/repos/tree/General/libs-snapshot-local/com/actions/demoapp/demoapp/
