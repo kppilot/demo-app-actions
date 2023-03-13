@@ -23,3 +23,5 @@ jobs:
           jf rt bag
           # Publish build info
           jf rt bp
+
+          jf rt u --server-id = actionsdemo
