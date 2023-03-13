@@ -11,7 +11,7 @@ jobs:
       
       #- name: try
       - run : | 
-             mkdir -p artifacts && cp target/*.jar artifacts
+             mkdir -p artifacts && cp "target"/*.jar artifacts
              cd artifacts && ls
         
       - uses: actions/upload-artifact@v2
