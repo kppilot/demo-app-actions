@@ -30,7 +30,7 @@ jobs:
       run: | 
              mkdir docker_compose
              cd docker_compose
-             docker build -t docker_compose:1.0 ./
+             docker build -t docker_compose:1.0 .
              docker push docker_compose:1.0
              
            
