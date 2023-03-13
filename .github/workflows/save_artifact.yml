@@ -17,7 +17,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: github-actions-artifact
-          path: artifacts
+          path: .
           
       - name: Setup JFrog CLI
         uses: jfrog/setup-jfrog-cli@v3
