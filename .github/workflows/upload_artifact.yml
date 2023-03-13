@@ -16,9 +16,9 @@ jobs:
           JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
       - run:    mkdir temp && cp target/*.jar temp
       - uses: actions/upload-artifact@v3
-         with:
+        with:
          name: Package
-        path: temp 
+         path: temp 
       - name: Run JFrog CLI
         run: |
           # Collect environment variables for the build
