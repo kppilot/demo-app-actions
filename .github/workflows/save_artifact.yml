@@ -1,0 +1,42 @@
+name: "Upload to jfrog"
+on: 
+  workflow_call:
+  
+jobs:
+  saveartifact:
+    runs-on: ubuntu-latest
+    steps:
+    
+      - uses: actions/checkout@v3
+      
+      #- name: try
+      - run : | 
+             mkdir -p artifacts
+             
+        
+      - uses: actions/upload-artifact@v2
+        with:
+          name: github-actions-artifact
+          path: .
+          
+      - name: Setup JFrog CLI
+        uses: jfrog/setup-jfrog-cli@v3
+        env:
+          JF_USER: ${{ secrets.JF_USER }}
+          JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
+          JF_ENV_1: ${{ secrets.JF_SECRET_ENV_1 }}
+          JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+           
+      - uses: actions/upload-artifact@v3
+        with:
+         name: Package
+         path: artifacts 
+      - name: Run JFrog CLI
+        #Collect environment variables for the build
+       # Collect VCS details from git and add them to the build
+        # Publish build info
+        run: |
+          jf rt bce
+          jf rt bag
+          jf rt bp
+          jf rt u "artifacts/" libs-snapshot-local/com/actions/demoapp/demoapp/
