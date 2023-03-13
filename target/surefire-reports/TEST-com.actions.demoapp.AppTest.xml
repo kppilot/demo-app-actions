@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.actions.demoapp.AppTest" time="0.031" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.actions.demoapp.AppTest" time="0.022" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
     <property name="java.specification.version" value="11"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\syncron\new\demoapp\target\test-classes;C:\syncron\new\demoapp\target\classes;C:\Users\asishe\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\asishe\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="java.class.path" value="C:\syncron\new\demoapp\target\test-classes;C:\syncron\new\demoapp\target\classes;C:\Users\asishe\.m2\repository\org\springframework\boot\spring-boot-starter\3.0.4\spring-boot-starter-3.0.4.jar;C:\Users\asishe\.m2\repository\org\springframework\boot\spring-boot\3.0.4\spring-boot-3.0.4.jar;C:\Users\asishe\.m2\repository\org\springframework\spring-context\6.0.6\spring-context-6.0.6.jar;C:\Users\asishe\.m2\repository\org\springframework\spring-aop\6.0.6\spring-aop-6.0.6.jar;C:\Users\asishe\.m2\repository\org\springframework\spring-beans\6.0.6\spring-beans-6.0.6.jar;C:\Users\asishe\.m2\repository\org\springframework\spring-expression\6.0.6\spring-expression-6.0.6.jar;C:\Users\asishe\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.0.4\spring-boot-autoconfigure-3.0.4.jar;C:\Users\asishe\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.0.4\spring-boot-starter-logging-3.0.4.jar;C:\Users\asishe\.m2\repository\ch\qos\logback\logback-classic\1.4.5\logback-classic-1.4.5.jar;C:\Users\asishe\.m2\repository\ch\qos\logback\logback-core\1.4.5\logback-core-1.4.5.jar;C:\Users\asishe\.m2\repository\org\slf4j\slf4j-api\2.0.4\slf4j-api-2.0.4.jar;C:\Users\asishe\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.19.0\log4j-to-slf4j-2.19.0.jar;C:\Users\asishe\.m2\repository\org\apache\logging\log4j\log4j-api\2.19.0\log4j-api-2.19.0.jar;C:\Users\asishe\.m2\repository\org\slf4j\jul-to-slf4j\2.0.6\jul-to-slf4j-2.0.6.jar;C:\Users\asishe\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\asishe\.m2\repository\org\springframework\spring-core\6.0.6\spring-core-6.0.6.jar;C:\Users\asishe\.m2\repository\org\springframework\spring-jcl\6.0.6\spring-jcl-6.0.6.jar;C:\Users\asishe\.m2\repository\org\yaml\snakeyaml\1.33\snakeyaml-1.33.jar;C:\Users\asishe\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\asishe\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="java.vm.vendor" value="Amazon.com Inc."/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -17,9 +17,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IN"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.18_10\bin"/>
-    <property name="sun.java.command" value="C:\Users\asishe\AppData\Local\Temp\surefire14282178647598872294\surefirebooter12343600449493821465.jar C:\Users\asishe\AppData\Local\Temp\surefire14282178647598872294 2023-03-13T15-54-20_497-jvmRun1 surefire1336450783901834944tmp surefire_08491530691401756990tmp"/>
+    <property name="sun.java.command" value="C:\Users\asishe\AppData\Local\Temp\surefire2769379768082890269\surefirebooter18089416714942508693.jar C:\Users\asishe\AppData\Local\Temp\surefire2769379768082890269 2023-03-13T22-46-55_250-jvmRun1 surefire6255324216499307810tmp surefire_010751632145883251693tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\syncron\new\demoapp\target\test-classes;C:\syncron\new\demoapp\target\classes;C:\Users\asishe\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\asishe\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="surefire.test.class.path" value="C:\syncron\new\demoapp\target\test-classes;C:\syncron\new\demoapp\target\classes;C:\Users\asishe\.m2\repository\org\springframework\boot\spring-boot-starter\3.0.4\spring-boot-starter-3.0.4.jar;C:\Users\asishe\.m2\repository\org\springframework\boot\spring-boot\3.0.4\spring-boot-3.0.4.jar;C:\Users\asishe\.m2\repository\org\springframework\spring-context\6.0.6\spring-context-6.0.6.jar;C:\Users\asishe\.m2\repository\org\springframework\spring-aop\6.0.6\spring-aop-6.0.6.jar;C:\Users\asishe\.m2\repository\org\springframework\spring-beans\6.0.6\spring-beans-6.0.6.jar;C:\Users\asishe\.m2\repository\org\springframework\spring-expression\6.0.6\spring-expression-6.0.6.jar;C:\Users\asishe\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.0.4\spring-boot-autoconfigure-3.0.4.jar;C:\Users\asishe\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.0.4\spring-boot-starter-logging-3.0.4.jar;C:\Users\asishe\.m2\repository\ch\qos\logback\logback-classic\1.4.5\logback-classic-1.4.5.jar;C:\Users\asishe\.m2\repository\ch\qos\logback\logback-core\1.4.5\logback-core-1.4.5.jar;C:\Users\asishe\.m2\repository\org\slf4j\slf4j-api\2.0.4\slf4j-api-2.0.4.jar;C:\Users\asishe\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.19.0\log4j-to-slf4j-2.19.0.jar;C:\Users\asishe\.m2\repository\org\apache\logging\log4j\log4j-api\2.19.0\log4j-api-2.19.0.jar;C:\Users\asishe\.m2\repository\org\slf4j\jul-to-slf4j\2.0.6\jul-to-slf4j-2.0.6.jar;C:\Users\asishe\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\asishe\.m2\repository\org\springframework\spring-core\6.0.6\spring-core-6.0.6.jar;C:\Users\asishe\.m2\repository\org\springframework\spring-jcl\6.0.6\spring-jcl-6.0.6.jar;C:\Users\asishe\.m2\repository\org\yaml\snakeyaml\1.33\snakeyaml-1.33.jar;C:\Users\asishe\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\asishe\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\asishe"/>
     <property name="user.language" value="en"/>
@@ -33,7 +33,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\asishe\AppData\Local\Temp\surefire14282178647598872294\surefirebooter12343600449493821465.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\asishe\AppData\Local\Temp\surefire2769379768082890269\surefirebooter18089416714942508693.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.18+10-LTS"/>
@@ -60,5 +60,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="com.actions.demoapp.AppTest" time="0"/>
+  <testcase name="shouldAnswerWithTrue" classname="com.actions.demoapp.AppTest" time="0.002"/>
 </testsuite>
