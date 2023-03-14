@@ -39,9 +39,9 @@ jobs:
   
    uses: ./.github/workflows/deploy-staging.yml
    
-  call-saveartifact-workflow:
+  call-uploadartifact-workflow:
    needs: call-deployStaging-workflow
-   uses: ./.github/workflows/save_artifact.yml
+   uses: ./.github/workflows/upload_to_dockerhub.yml.yml
    secrets: inherit
  
  # call depoly ecs workflow
