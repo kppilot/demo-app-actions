@@ -39,4 +39,4 @@ jobs:
           jf rt bce
           jf rt bag
           jf rt bp
-          jfrog rt docker-push demoapp/2.0 https://actions.jfrog.io/artifactory/libs-snapshot-local/com/actions/demoapp/demoapp/
+          jfrog rt docker-push https://actions.jfrog.io/artifactory/libs-snapshot-local/com/actions/demoapp/demoapp/demoapp:2.0
