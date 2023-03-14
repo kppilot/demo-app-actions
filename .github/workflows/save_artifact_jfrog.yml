@@ -27,8 +27,8 @@ jobs:
         env:
           JF_USER: ${{ secrets.JF_USER }}
           JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
-          JF_ENV_1: ${{ secrets.JF_SECRET_ENV_1 }}
-          JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+          #JF_ENV_1: ${{ secrets.JF_SECRET_ENV_1 }}
+          #JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
            
       - uses: actions/upload-artifact@v3
         with:
@@ -43,6 +43,5 @@ jobs:
           jf rt bce
           jf rt bag
           jf rt bp
-          jf docker login -u ${{ secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PWD}}
           jf rt docker-push 6006012702/img/1.0 https://actions.jfrog.io/artifactory/6006012702/
 
