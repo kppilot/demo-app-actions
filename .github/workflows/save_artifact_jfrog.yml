@@ -13,8 +13,8 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: registry-1.docker.io/
-          username: sheikh
-          password: JE2dCZwK1sN5fXF7TF61ehp7H5vjiA1g81SKxxwSN8rPNMtJZJ
+          username: kamakazepilot00@gmail.com
+          password: Play4m33@
       
    
       - run : | 
