@@ -14,7 +14,7 @@ jobs:
         with:
           registry: registry-1.docker.io/
           username: sheikh
-          password: Play4m33@
+          password: JE2dCZwK1sN5fXF7TF61ehp7H5vjiA1g81SKxxwSN8rPNMtJZJ
       
    
       - run : | 
