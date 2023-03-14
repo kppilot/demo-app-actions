@@ -13,7 +13,7 @@ jobs:
        #docker tag img:latest myimg:1.0
       - run : | 
              mkdir -p artifacts
-             docker build -t img:1.0 .
+             docker build -t 6006012702/img:1.0 .
             
              
         
@@ -43,5 +43,5 @@ jobs:
           jf rt bce
           jf rt bag
           jf rt bp
-          jf rt docker-push img/1.0 https://actions.jfrog.io/artifactory/6006012702/
+          jf rt docker-push 6006012702/img/1.0 https://actions.jfrog.io/artifactory/6006012702/
 
