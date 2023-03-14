@@ -18,9 +18,9 @@ on:
 jobs:
 
   # call test workflow   
-  #call-test-workflow:
-    #needs : call-build-workflow
-   #uses: ./.github/workflows/linter-test.yml
+  call-test-workflow:
+    needs : call-build-workflow
+    uses: ./.github/workflows/linter-test.yml
 
   # call the build workflow
   call-build-workflow:
@@ -41,7 +41,7 @@ jobs:
    
   call-uploadartifact-workflow:
    needs: call-deployStaging-workflow
-   uses: ./.github/workflows/upload_to_dockerhub.yml.yml
+   uses: ./.github/workflows/upload_to_dockerhub.yml
    secrets: inherit
  
  # call depoly ecs workflow
