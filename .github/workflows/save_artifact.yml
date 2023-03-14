@@ -42,5 +42,5 @@ jobs:
           jf rt bce
           jf rt bag
           jf rt bp
-          jfrog rt docker-push myimg:1.0 https://actions.jfrog.io/artifactory/6006012702/
+          jfrog docker-push myimg:1.0 https://actions.jfrog.io/artifactory/6006012702/
 
