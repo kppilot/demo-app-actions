@@ -1,6 +1,6 @@
 name: "Upload to jfrog"
 on: 
-  workflow_call:
+  workflow_dispatch:
   
 jobs:
   saveartifact:
@@ -43,5 +43,5 @@ jobs:
           jf rt bce
           jf rt bag
           jf rt bp
-          jf rt docker-push img:1.0 https://actions.jfrog.io/artifactory/6006012702/
+          jf rt docker-push img/1.0 https://actions.jfrog.io/artifactory/6006012702/
 
