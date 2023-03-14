@@ -43,5 +43,5 @@ jobs:
           jf rt bce
           jf rt bag
           jf rt bp
-          jf rt docker-push 6006012702/img/1.0 https://actions.jfrog.io/artifactory/6006012702/
+          jfrog rt docker-push --url https://actions.jfrog.io/artifactory --apikey ${{secrets.JF_API_KEY}} --build-name docker-img --build-number 1.2.0 actions.jfrog.io/artifafctory/dockervirtualrepo/docker-img:d2e40a5ed58eae04750c6ecc2f3f6f0019a7981d dockervirtualrepo
 
