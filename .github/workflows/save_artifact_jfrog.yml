@@ -12,7 +12,7 @@ jobs:
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v2
         with:
-          registry: registry-1.docker.io/
+          registry: actions.jfrog.io/artifactory/docker-repo-docker-remote/
           username: kamakazepilot00@gmail.com
           password: Play4m33@
       
