@@ -43,6 +43,6 @@ jobs:
           jf rt bce
           jf rt bag
           jf rt bp
-          jf docker login actions.jfrog.io
+          jf docker login -u ${{ secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PWD}}
           jf rt docker-push 6006012702/img/1.0 https://actions.jfrog.io/artifactory/6006012702/
 
