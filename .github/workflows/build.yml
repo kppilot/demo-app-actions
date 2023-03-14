@@ -26,10 +26,7 @@ jobs:
     - name: Build with Maven
       run: |
            mvn -B package --file pom.xml
-    - name: build-image
-      run: |
-             docker build -t demoapp-2.0-snapshot.jar .
-            #docker push app:1.0 ./
+    
              
            
 
