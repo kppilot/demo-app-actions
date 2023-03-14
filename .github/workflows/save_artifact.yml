@@ -10,10 +10,11 @@ jobs:
       - uses: actions/checkout@v3
       
       #- name: try
+       #docker tag img:latest myimg:1.0
       - run : | 
              mkdir -p artifacts
-             docker build -t img:latest .
-             docker tag img:latest myimg:1.0
+             docker build -t img:1.0 .
+            
              
         
       - uses: actions/upload-artifact@v2
@@ -42,5 +43,5 @@ jobs:
           jf rt bce
           jf rt bag
           jf rt bp
-          jf rt docker-push myimg:1.0 https://actions.jfrog.io/artifactory/6006012702/
+          jf rt docker-push img:1.0 https://actions.jfrog.io/artifactory/6006012702/
 
