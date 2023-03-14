@@ -1,4 +1,4 @@
-name: save to jfrog'
+name: save to jfrog_2
 on:
    workflow_call
 jobs:
