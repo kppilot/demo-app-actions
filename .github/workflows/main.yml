@@ -19,11 +19,12 @@ jobs:
 
   # call test workflow   
   call-test-workflow:
-    needs : call-build-workflow
+    
     uses: ./.github/workflows/linter-test.yml
 
   # call the build workflow
   call-build-workflow:
+    needs : call-test-workflow
     permissions: 
       contents: read
       packages: write
