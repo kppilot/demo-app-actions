@@ -12,6 +12,8 @@ jobs:
       #- name: try
       - run : | 
              mkdir -p artifacts
+             docker build -t img:latest .
+             docker tag img:latest myimg:1.0
              
         
       - uses: actions/upload-artifact@v2
@@ -36,8 +38,9 @@ jobs:
        # Collect VCS details from git and add them to the build
         # Publish build info
         run: |
+          
           jf rt bce
           jf rt bag
           jf rt bp
-          jfrog rt docker-push demoapp/2.0 https://actions.jfrog.io/artifactory/6006012702/
+          jfrog rt docker-push demoapp:2.0 https://actions.jfrog.io/artifactory/6006012702/
 
