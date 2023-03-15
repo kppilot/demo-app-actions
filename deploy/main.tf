@@ -13,7 +13,7 @@ terraform {
       name = "demoactionswp"
     }
   }
-}
+  }
 
 locals {
   app_name = "ecs_deploy_gh_actions"
