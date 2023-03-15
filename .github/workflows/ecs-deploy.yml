@@ -43,7 +43,7 @@ jobs:
          ECR_REPOSITORY: ${{ env.APP_NAME }}-${{ env.SVC_NAME }}
          DOCKER_REPOSITORY: sheikh111/demo-actions-repo
          IMAGE_TAG: sha-79e9000
-         run: |
+        run: |
           docker pull $DOCKER_REPOSITORY:$IMAGE_TAG
           docker tag $DOCKER_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
