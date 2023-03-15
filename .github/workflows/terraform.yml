@@ -21,7 +21,6 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
-          terraform_version: 1.4.0
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
       - name: Terraform Format
@@ -32,7 +31,7 @@ jobs:
         id: init
         uses: hashicorp/terraform-github-actions@master
         with:
-         #tf_actions_version: 0.12.13
+         tf_actions_version: 0.12.13
          tf_actions_subcommand: 'init'
          tf_actions_working_dir: './deploy'
          #tf_actions_comment: true
