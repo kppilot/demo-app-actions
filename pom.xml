@@ -115,7 +115,7 @@
     <snapshotRepository>
         <id>snapshots</id>
         <name>a0mlwtvabqcdv-artifactory-primary-0-snapshots</name>
-        <url>https://actions.jfrog.io/artifactory/libs-snapshot</url>
+        <url>https://actions.jfrog.io/artifactory/6006012702/</url>
     </snapshotRepository>
 </distributionManagement>
 </project>
