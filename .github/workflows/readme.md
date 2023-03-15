@@ -1,9 +1,9 @@
 # CI WORKFLOWS : 
 main.yml </br>
 test.yml</br>
-build.yml
-deploy-staging.yml
-upload_to_dockerhub.yml
+build.yml </br>
+deploy-staging.yml </br>
+upload_to_dockerhub.yml </br>
 
 # CD WORKFLOWS
-ecs-deploy.yml
+ecs-deploy.yml </br>
