@@ -9,5 +9,5 @@ upload_to_dockerhub.yml </br>
 ecs-deploy.yml </br>
 
 
-# terraform workflows
+# TERRAFORM WORKFLOWS
 terraform.yml
