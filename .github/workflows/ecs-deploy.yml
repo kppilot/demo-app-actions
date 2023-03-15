@@ -40,7 +40,7 @@ jobs:
       - id: Pull image
         env:
          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-         ECR_REPOSITORY: demorepo
+         ECR_REPOSITORY: ${{ env.APP_NAME }}-${{ env.SVC_NAME }}
          DOCKER_REPOSITORY: sheikh111/demo-actions-repo
          IMAGE_TAG: sha-79e9000
          run: |
@@ -58,7 +58,7 @@ jobs:
       - id: push image
         env:
          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-         ECR_REPOSITORY: demorepo
+         ECR_REPOSITORY: ${{ env.APP_NAME }}-${{ env.SVC_NAME }}
          DOCKER_REPOSITORY: sheikh111/demo-actions-repo
          IMAGE_TAG: sha-79e9000
         run: |
