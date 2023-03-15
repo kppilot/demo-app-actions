@@ -41,7 +41,7 @@ jobs:
       - name: Terraform Plan
         id: plan
         #if: github.event_name == 'pull_request'
-        run: terraform plan -out=v1.tfplan -no-color -input=true 
+        run: terraform plan  -no-color -input=true 
         continue-on-error: true
 
       - name: Update Pull Request
