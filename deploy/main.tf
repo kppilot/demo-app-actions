@@ -5,6 +5,7 @@ terraform {
       source  = "hashicorp/aws"
       version = "4.52.0"
     }
+  }
     
   cloud {
     organization = "demoapp"
@@ -14,7 +15,7 @@ terraform {
     }
   }
   }
-  }
+  
 
 locals {
   app_name = "ecs_deploy_gh_actions"
