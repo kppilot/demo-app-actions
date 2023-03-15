@@ -31,7 +31,6 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: sheikh111/demo-actions-repo
-          tag-custom: latest
           tags: |
             type=schedule
             type=ref,event=branch
