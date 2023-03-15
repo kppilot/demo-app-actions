@@ -7,3 +7,7 @@ upload_to_dockerhub.yml </br>
 
 # CD WORKFLOWS
 ecs-deploy.yml </br>
+
+
+# terraform workflows
+terraform.yml
