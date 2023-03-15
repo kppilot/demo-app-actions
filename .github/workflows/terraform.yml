@@ -11,6 +11,9 @@ jobs:
   terraform:
     name: "Terraform"
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./deploy
     permissions:
       pull-requests: write
     steps:
@@ -29,15 +32,7 @@ jobs:
 
       - name: Terraform Init
         id: init
-        uses: hashicorp/terraform-github-actions@master
-        with:
-         tf_actions_version: 0.12.13
-         tf_actions_subcommand: 'init'
-         tf_actions_working_dir: './deploy'
-         #tf_actions_comment: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        #run: terraform init
+        run: terraform init
       
       - name: Terraform Validate
         id: validate
