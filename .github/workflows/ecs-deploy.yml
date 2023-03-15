@@ -37,7 +37,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PWD }}
           
-      - id: Pull-image
+      - id: pull-image
         env:
          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
          ECR_REPOSITORY: ${{ env.APP_NAME }}-${{ env.SVC_NAME }}
@@ -69,7 +69,7 @@ jobs:
           sed -e "s|__IMAGE_NAME__|$IMAGE_NAME|g" $COMPOSE_FILE > $OUT_COMPOSE_FILE
           echo "::set-output name=file::$OUT_COMPOSE_FILE"          
         env:
-          IMAGE_NAME: ${{ steps.build-image.outputs.image }}
+          IMAGE_NAME: ${{ steps.pull-image.outputs.image }}
           COMPOSE_FILE: ${{ env.SVC_COMPOSE_FILE }}
           OUT_COMPOSE_FILE: deploy.docker-compose.yml
       - id: target-group
