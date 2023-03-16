@@ -10,6 +10,7 @@ on:
   push:
     branches:
        - kp_branch
+       - main
   
   workflow_dispatch:
   
