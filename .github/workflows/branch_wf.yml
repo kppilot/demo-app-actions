@@ -1,15 +1,10 @@
-name: Main
+name: branch wf
 
-on:
-  pull_request:
-    types:
-      - closed
-    branches:
-      - main
-      
+on:    
   push:
     branches:
        - kp_branch
+       
   
   workflow_dispatch:
   
@@ -17,12 +12,10 @@ on:
 jobs:
   # call test workflow   
   call-test-workflow:
-    if: github.event.pull_request.merged == true
-    uses: ./.github/workflows/linter-test.yml
+     uses: ./.github/workflows/linter-test.yml
 
   # call the build workflow
   call-build-workflow:
-    if: github.event.pull_request.merged == true
     needs : call-test-workflow
     permissions: 
       contents: read
@@ -32,15 +25,13 @@ jobs:
     
 # call deploy to staging workflow
   call-deployStaging-workflow:
-   if: github.event.pull_request.merged == true
    needs: call-build-workflow
    uses: ./.github/workflows/deploy-staging.yml
    
-  call-uploadartifact-workflow:
-   if: github.event.pull_request.merged == true
-   needs: call-deployStaging-workflow
-   uses: ./.github/workflows/upload_to_dockerhub.yml
-   secrets: inherit
+  #call-uploadartifact-workflow:
+   #needs: call-deployStaging-workflow
+   #uses: ./.github/workflows/upload_to_dockerhub.yml
+   #secrets: inherit
  
  # call depoly ecs workflow
   #call-deployECS-workflow:
