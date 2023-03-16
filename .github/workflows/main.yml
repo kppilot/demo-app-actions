@@ -35,6 +35,7 @@ jobs:
    uses: ./.github/workflows/deploy-staging.yml
    
   call-uploadartifact-workflow:
+   if: github.event.pull_request.merged
    needs: call-deployStaging-workflow
    uses: ./.github/workflows/upload_to_dockerhub.yml
    secrets: inherit
