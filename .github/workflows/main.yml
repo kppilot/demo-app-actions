@@ -1,18 +1,17 @@
 name: Main
 
 on:
- #push:
-  #branches:
-   #- feature1
-   #- main
-   
- #pull_request:
-  #types:
-   #[opened, reopened]
-  #branches:
-  #- main
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+      
+  push:
+    branches:
+       - kp_branch
   
- workflow_dispatch:
+  workflow_dispatch:
   
  
 jobs:
