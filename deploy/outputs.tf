@@ -11,5 +11,5 @@ output "public_subnet_2_id"{
 }
 
 output "alb_public_dns"{
-  value= aws_lb.this.dns_name
+  value= "http://${aws_lb.this.dns_name}/"
 }
