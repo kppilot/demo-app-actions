@@ -81,3 +81,6 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
         run: terraform apply -input=true
+        
+      - name : Terraform outputs
+        run : terraform output -json > ./output.json
