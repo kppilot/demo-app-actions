@@ -5,23 +5,15 @@ on:
     types:
       - closed
     branches:
-      - main
-      
-      
+      - main    
   push:
     branches:
        - main
-       
-  
-  workflow_dispatch:
-  
- 
-jobs:
-  # call test workflow   
+   
+jobs:   
   call-test-workflow:
      uses: ./.github/workflows/linter-test.yml
-
-  # call the build workflow
+     
   call-build-workflow:
     needs : call-test-workflow
     permissions: 
@@ -30,7 +22,6 @@ jobs:
     uses: ./.github/workflows/build.yml
     secrets: inherit
     
-# call deploy to staging workflow
   call-deployStaging-workflow:
    needs: call-build-workflow
    uses: ./.github/workflows/deploy-staging.yml
@@ -40,13 +31,6 @@ jobs:
    uses: ./.github/workflows/upload_to_dockerhub.yml
    secrets: inherit
  
- # call depoly ecs workflow
-  #call-deployECS-workflow:
-    #permissions:
-      #contents: read
-      #id-token: write
-    #needs : call-deployStaging-workflow
-    #uses: ./.github/workflows/ecs-deploy.yml
   
   
   
