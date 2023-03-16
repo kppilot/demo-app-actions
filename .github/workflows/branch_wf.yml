@@ -4,13 +4,11 @@ on:
   push:
     branches:
        - kp_branch 
- 
 jobs:
-  # call test workflow   
+
   call-test-workflow:
      uses: ./.github/workflows/linter-test.yml
-
-  # call the build workflow
+     
   call-build-workflow:
     needs : call-test-workflow
     permissions: 
