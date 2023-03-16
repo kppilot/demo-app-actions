@@ -22,12 +22,12 @@ jobs:
 
   # call the build workflow
   call-build-workflow:
-    if: github.event.pull_request.merged == true
+    #if: github.event.pull_request.merged == true
     needs : call-test-workflow
     permissions: 
       contents: read
       packages: write
-    uses: ./.github/workflows/build.yml
+    uses: ./.github/workflows/main_wfs/build.yml
     secrets: inherit
     
 # call deploy to staging workflow
