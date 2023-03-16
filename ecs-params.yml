@@ -9,9 +9,8 @@ task_definition:
 run_params:
   network_configuration:
     awsvpc_configuration:
-      subnets:
-        - subnet-0b2b676509c90182b
-        - subnet-0b1d7cecd53ea3e06
+      subnets: [aws_subnet.public_1.id,aws_subnet.public_2.id]
+        
       security_groups:
-        - sg-0db9dfdc819f00256
+        aws_security_group.app.id
       assign_public_ip: ENABLED
