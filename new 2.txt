@@ -11,3 +11,6 @@ jfrog rt docker-push --url https://actions.jfrog.io/artifactory --apikey ${{secr
 docker login -ukamakazepilot00@gmail.com actions.jfrog.io
 cmVmdGtuOjAxOjE3MTAzMjA0Mzg6YUFkUHpCdWNlVGM2MU9XN0lUSmxqUUtPNmRC
  docker pull actions.jfrog.io/dockervirtualrepo/<DOCKER_IMAGE>:<DOCKER_TAG>
+ next steps:
+tests should run when push to a branch or a pr is created ?
+main branch tests should run on push to main or pr_merged ?
