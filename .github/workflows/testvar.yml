@@ -1,0 +1,15 @@
+name: test variable seting
+on:
+ workflow_dispatch:
+ 
+jobs:
+  var:
+    runs_on: ubuntu_latest
+    steps:
+      - name: set var
+      uses: ./.github/actions/setvars
+      with:
+         varFilePath: ./.github/variables/myvars.env
+      run: | 
+           echo "public_subnet_1_id= 12345678" >> $GITHUB_ENV
+            echo ${{env.public_subnet_1_id}}
