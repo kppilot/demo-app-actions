@@ -7,6 +7,7 @@ on:
       - main
 jobs:
   build:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
@@ -18,4 +19,5 @@ jobs:
       uses: anothrNick/github-tag-action@1.55.0 # Don't use @master unless you're happy to test the latest version
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        custom_tag: true
         WITH_V: true
