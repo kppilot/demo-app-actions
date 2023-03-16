@@ -11,7 +11,7 @@ run_params:
     awsvpc_configuration:
       subnets: 
            - ${{env.public_subnet_1_id}}
-           - ${{env.public_subnet_2_id}}]
+           - ${{env.public_subnet_2_id}}
         
         
       security_groups:
