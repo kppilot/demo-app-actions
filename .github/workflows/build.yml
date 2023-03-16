@@ -4,6 +4,16 @@
 name: Java CI with Maven
 
 on:
+ pull_request:
+    types:
+      - closed
+    branches:
+      - main
+      
+ push:
+   branches:
+      - kp_branch
+     
  workflow_call:
 
 jobs:
