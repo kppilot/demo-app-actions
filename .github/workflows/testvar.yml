@@ -4,12 +4,12 @@ on:
  
 jobs:
   var:
-    runs_on: ubuntu_latest
+    runs-on: ubuntu_latest
     steps:
       - name: set var
-      uses: ./.github/actions/setvars
-      with:
+        uses: ./.github/actions/setvars
+        with:
          varFilePath: ./.github/variables/myvars.env
-      run: | 
+      - run: | 
            echo "public_subnet_1_id= 12345678" >> $GITHUB_ENV
             echo ${{env.public_subnet_1_id}}
