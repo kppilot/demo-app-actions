@@ -1,17 +1,23 @@
 name: Main branch wf
 
 on:
+  push:
+    branches:
+       - main
+    paths-ignore:
+      - README.md
+      
   pull_request:
     types:
       - closed
     branches:
       - main    
-  push:
-    branches:
-       - main
+  
    
-jobs:   
+jobs:
+  
   call-test-workflow:
+     if: ${{ github.event_name == 'push' || github.event.pull_request.merged == true }}
      uses: ./.github/workflows/linter-test.yml
      
   call-build-workflow:
