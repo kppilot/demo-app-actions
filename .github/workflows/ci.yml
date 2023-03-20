@@ -13,20 +13,21 @@ jobs:
  # call to tag and release workflow
  # outputs : img_tag
   call-tag-workflow:
-    if: ${{ github.event_name == 'push' || github.event.pull_request.merged == true }}
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     uses: ./.github/workflows/tag.yml
     secrets: inherit
    
  # call to test workflow
  # needs tag workflow to succeed
   call-test-workflow:
-     if: ${{ github.event_name == 'push' || github.event.pull_request.merged == true }}
+     if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+     #if: ${{ github.event_name == 'push' || github.event.pull_request.merged == true }}
      needs: call-tag-workflow
      uses: ./.github/workflows/linter-test.yml
  
- #call to build workflow
  # needs tests to succeed
   call-build-workflow:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     needs : call-test-workflow
     permissions: 
       contents: read
@@ -37,7 +38,8 @@ jobs:
  # call to staging workflow for approval and review of team
  # needs build to succeed
   call-deployStaging-workflow:
-   if: ${{ github.event_name == 'push' || github.event.pull_request.merged == true }}
+   if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+   #if: ${{ github.event_name == 'push' || github.event.pull_request.merged == true }}
    needs: call-build-workflow
    uses: ./.github/workflows/deploy-staging.yml
    
@@ -45,7 +47,8 @@ jobs:
  # needs approval
  # inputs : img_tag , as outputtes by tag workflow
   call-uploadartifact-workflow:
-   if: ${{ github.event_name == 'push' || github.event.pull_request.merged == true }}
+   if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+   #if: ${{ github.event_name == 'push' || github.event.pull_request.merged == true }}
    needs: [call-deployStaging-workflow,call-tag-workflow]
    uses: ./.github/workflows/upload_to_dockerhub.yml
    with:
