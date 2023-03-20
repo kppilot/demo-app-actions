@@ -31,9 +31,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         WITH_V: true
     - run: |
-          img_tag = ${{steps.tag.outputs.tag}}
+          echo "img_tag = ${{steps.tag.outputs.tag}}" >>GITHUB_OUTPUT
           echo "output [$img_tag]"
-          echo "img_tag=$img_tag" >> $GITHUB_OUTPUT
+
         
     - id: release 
       uses: actions/create-release@v1
