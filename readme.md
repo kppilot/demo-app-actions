@@ -9,4 +9,5 @@ pr for second minor change
 semantic versioning </br>
 working on tags
 resolved workflow again and again </br>
-should work now
+should work now</br>
+worked on manual dispatch
