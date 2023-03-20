@@ -1,0 +1,29 @@
+name: test tag_op_docker_ip
+
+on:
+ workflow_dispatch:
+  #push:
+    #branches:
+       #- main
+    #paths-ignore:
+      - README.md
+      
+  #pull_request:
+    #types:
+      #- closed
+    #branches:
+      #- main    
+  
+   
+jobs:
+  call-tag-workflow:
+    if: ${{ github.event_name == 'push' || github.event.pull_request.merged == true }}
+    uses: ./.github/workflows/tag.yml
+    
+  call-uploadartifact-workflow:
+   runs-on: ubuntu:latest
+   needs: call-tag-workflow
+   steps: 
+   - run: echo img_tag [${{needs.call-tag-workflow.outputs.img_tag}}]
+   #uses: ./.github/workflows/upload_to_dockerhub.yml
+   #secrets: inherit
