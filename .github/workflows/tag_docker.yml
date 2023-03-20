@@ -16,6 +16,7 @@ on:
   
    
 jobs:
+  
   call-tag-workflow:
     #if: ${{ github.event_name == 'push' || github.event.pull_request.merged == true }}
     uses: ./.github/workflows/tag.yml
@@ -25,9 +26,11 @@ jobs:
    runs-on: ubuntu:latest
    needs: call-tag-workflow
    steps: 
-   - name: Check out the repo
-     uses: actions/checkout@v3
-   - run: |
-        echo img_tag :${{needs.call-tag-workflow.outputs.img_tag}}
+     - name: Check out the repo
+       uses: actions/checkout@v3
+       
+     - name: fetch
+       run: |
+          echo img_tag :${{needs.call-tag-workflow.outputs.img_tag}}
    #uses: ./.github/workflows/upload_to_dockerhub.yml
    #secrets: inherit
