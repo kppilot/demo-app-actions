@@ -25,6 +25,7 @@ jobs:
    runs-on: ubuntu:latest
    needs: call-tag-workflow
    steps: 
-   - run: echo img_tag [${{needs.call-tag-workflow.outputs.img_tag}}]
+   - run: |
+        echo img_tag :${{needs.call-tag-workflow.outputs.img_tag}}
    #uses: ./.github/workflows/upload_to_dockerhub.yml
    #secrets: inherit
