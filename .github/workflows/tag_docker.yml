@@ -23,14 +23,8 @@ jobs:
     secrets: inherit
     
   call-uploadartifact-workflow:
-   runs-on: ubuntu-latest
-   needs: call-tag-workflow
-   steps: 
-     - name: Check out the repo
-       uses: actions/checkout@v3
-       
-     - name: fetch
-       run: |
-          echo img_tag :${{needs.call-tag-workflow.outputs.img_tag}}
-   #uses: ./.github/workflows/upload_to_dockerhub.yml
-   #secrets: inherit
+      needs: call-tag-workflow
+      uses: ./.github/workflows/upload_to_dockerhub.yml
+      with:
+         "img_tag": ${{needs.call-tag-workflow.outputs.img_tag}}
+      secrets: inherit
