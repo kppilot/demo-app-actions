@@ -15,7 +15,7 @@ jobs:
         ref: ${{ github.sha }}
         fetch-depth: '0'
 
-    - id: Bump version and push tag
+    - id: Bump_version_and_push_tag
       uses: anothrNick/github-tag-action@1.55.0 # Don't use @master unless you're happy to test the latest version
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
