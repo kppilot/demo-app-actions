@@ -19,6 +19,7 @@ jobs:
   call-tag-workflow:
     #if: ${{ github.event_name == 'push' || github.event.pull_request.merged == true }}
     uses: ./.github/workflows/tag.yml
+    secrets: inherit
     
   call-uploadartifact-workflow:
    runs-on: ubuntu:latest
