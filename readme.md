@@ -1,13 +1,5 @@
-# REPOSITORY FOR GITHUB ACTIONS DEMO
-task : build version</br>
-task: limiting access</br>
-new test
-test labels with build version
-with bump label
-new changes to readme of my branch
-pr for second minor change
-semantic versioning </br>
-working on tags
-resolved workflow again and again </br>
-should work now</br>
-worked on manual dispatch
+# REPOSITORY FOR GITHUB ACTIONS DEMO</br>
+CI part done </br>
+room for improvement</br>
+tasks: deployment based on tags</br>
+security </br>
