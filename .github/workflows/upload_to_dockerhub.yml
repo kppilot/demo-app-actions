@@ -10,12 +10,22 @@
 name: Publish Docker image
 
 on:
-  workflow_call:
+ workflow_call:
+   inputs:
+     img_tag:
+         required: true
+         type: string
+ 
+ #workflow_dispatch:
+ 
+
 
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
+    environment:
+       name: DEV
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
@@ -29,21 +39,19 @@ jobs:
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v4
+        env:
+         GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
         with:
-          images: sheikh111/demo-actions-repo
-          tags: |
-            type=schedule
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
-            type=sha
+          images: ${{vars.DOCKER_IMAGE}}
+          tags: ${{inputs.img_tag}}
+           
       
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
+        env:
+         GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{vars.DOCKER_IMAGE}}:${{inputs.img_tag}}
+         

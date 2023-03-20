@@ -1,16 +1,24 @@
 name: Bump version
 on:
-  pull_request:
-    types:
-      - closed
-    branches:
-      - main
+  #pull_request:
+    #types:
+      #- closed
+    #branches:
+      #- main
       
-      #workflow_dispatch:
+      workflow_call:
+          outputs: 
+            img_tag:
+              value: ${{jobs.tag_job.outputs.img_tag}}
+      
 jobs:
-  tag:
-    if: github.event.pull_request.merged == true
+  tag_job:
+    #if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    environment:
+        name: DEV
+    outputs:
+      img_tag: ${{steps.tag.outputs.tag}}
     steps:
     - uses: actions/checkout@v3
       with:
@@ -22,6 +30,9 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         WITH_V: true
+    - run: |
+          echo "img_tag = ${{steps.tag.outputs.tag}}" >> "$GITHUB_OUTPUT"
+
         
     - id: release 
       uses: actions/create-release@v1
