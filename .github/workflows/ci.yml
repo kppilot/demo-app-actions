@@ -37,6 +37,7 @@ jobs:
  # call to staging workflow for approval and review of team
  # needs build to succeed
   call-deployStaging-workflow:
+   if: ${{ github.event_name == 'push' || github.event.pull_request.merged == true }}
    needs: call-build-workflow
    uses: ./.github/workflows/deploy-staging.yml
    
@@ -44,14 +45,13 @@ jobs:
  # needs approval
  # inputs : img_tag , as outputtes by tag workflow
   call-uploadartifact-workflow:
+   if: ${{ github.event_name == 'push' || github.event.pull_request.merged == true }}
    needs: [call-deployStaging-workflow,call-tag-workflow]
    uses: ./.github/workflows/upload_to_dockerhub.yml
    with:
          "img_tag": ${{needs.call-tag-workflow.outputs.img_tag}}
    secrets: inherit
-   
  
-  
   
   
    
