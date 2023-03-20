@@ -6,7 +6,7 @@ on:
     branches:
       - main
 jobs:
-  build:
+  tag:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-22.04
     steps:
@@ -15,9 +15,18 @@ jobs:
         ref: ${{ github.sha }}
         fetch-depth: '0'
 
-    - name: Bump version and push tag
+    - id: Bump version and push tag
       uses: anothrNick/github-tag-action@1.55.0 # Don't use @master unless you're happy to test the latest version
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        custom_tag: true
         WITH_V: true
+        
+    - id: release 
+    - uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+         tag_name: ${{steps.tag.outputs.value}}
+         release_name: Release ${{steps.tag.outputs.value}}
+         prerelease: false
+    
