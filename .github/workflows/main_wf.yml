@@ -15,7 +15,10 @@ on:
   
    
 jobs:
-  
+  call-tag-workflow:
+    if: ${{ github.event_name == 'push' || github.event.pull_request.merged == true }}
+    uses: ./.github/workflows/tag.yml
+    
   call-test-workflow:
      if: ${{ github.event_name == 'push' || github.event.pull_request.merged == true }}
      uses: ./.github/workflows/linter-test.yml
@@ -33,7 +36,7 @@ jobs:
    uses: ./.github/workflows/deploy-staging.yml
    
   call-uploadartifact-workflow:
-   needs: call-deployStaging-workflow
+   needs: [call-deployStaging-workflow,call-tag-workflow]
    uses: ./.github/workflows/upload_to_dockerhub.yml
    secrets: inherit
  
