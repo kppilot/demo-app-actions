@@ -10,9 +10,9 @@
 name: Publish Docker image
 
 on:
-#orkflow_call:
+ workflow_call:
  
- workflow_dispatch:
+ #workflow_dispatch:
  
 
 
