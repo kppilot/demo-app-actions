@@ -39,7 +39,7 @@ jobs:
          GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
         with:
           images: ${{vars.DOCKER_IMAGE}}
-          tags: ${{vars.IMAGE_TAG}}
+          tags: ${{env.IMAGE_TAG}}
            
       
       - name: Build and push Docker image
@@ -49,5 +49,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{vars.DOCKER_IMAGE}}:${{vars.IMAGE_TAG}}
+          tags: ${{vars.DOCKER_IMAGE}}:${{env.IMAGE_TAG}}
          
