@@ -43,6 +43,8 @@ jobs:
       
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
+        env:
+         GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
         with:
           context: .
           push: true
