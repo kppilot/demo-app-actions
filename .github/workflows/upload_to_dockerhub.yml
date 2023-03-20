@@ -44,5 +44,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{DOCKER_IMAGE}}:${{vars.IMAGE_TAG }}
+          tags: ${{vars.DOCKER_IMAGE}}:${{vars.IMAGE_TAG }}
           #labels: ${{ steps.meta.outputs.labels }}
