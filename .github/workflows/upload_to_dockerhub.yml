@@ -10,8 +10,7 @@
 name: Publish Docker image
 
 on:
- workflow_dispatch:
-  #workflow_call:
+ workflow_call:
 
 jobs:
   push_to_registry:
@@ -45,4 +44,4 @@ jobs:
           context: .
           push: true
           tags: ${{vars.DOCKER_IMAGE}}:${{vars.IMAGE_TAG }}
-          #labels: ${{ steps.meta.outputs.labels }}
+         
