@@ -11,6 +11,10 @@ name: Publish Docker image
 
 on:
  workflow_call:
+   inputs:
+     img_tag:
+         required: true
+         type: string
  
  #workflow_dispatch:
  
@@ -39,7 +43,7 @@ jobs:
          GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
         with:
           images: ${{vars.DOCKER_IMAGE}}
-          tags: ${{vars.IMAGE_TAG}}
+          tags: ${{inputs.img_tag}}
            
       
       - name: Build and push Docker image
@@ -49,5 +53,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{vars.DOCKER_IMAGE}}:${{vars.IMAGE_TAG}}
+          tags: ${{vars.DOCKER_IMAGE}}:${{inputs.img_tag}}
          
