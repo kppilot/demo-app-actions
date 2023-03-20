@@ -11,6 +11,8 @@ jobs:
   tag:
     #if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    environment:
+        name: DEV
     steps:
     - uses: actions/checkout@v3
       with:
