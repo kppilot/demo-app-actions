@@ -23,7 +23,7 @@ jobs:
     secrets: inherit
     
   call-uploadartifact-workflow:
-   runs-on: ubuntu:latest
+   runs-on: ubuntu-latest
    needs: call-tag-workflow
    steps: 
      - name: Check out the repo
