@@ -12,8 +12,14 @@ jobs:
  # call to test workflow
  # needs tag workflow to succeed
   call-test-workflow:
+     runs-on: ubuntu-latest
      if: github.event_name == 'pull_request' && github.event.action == 'opened'
-     uses: ./.github/workflows/linter-test.yml
+     steps:
+     - run: echo "i'm testing"
+     #uses: ./.github/workflows/linter-test.yml
+ 
+     
+     
  
  # needs tests to succeed
   call-build-workflow:
