@@ -7,11 +7,14 @@ terraform {
   }
 }
 
+data "aws_secretsmanager_secret_version" "creds"{
+  secret_id = "creds"
+}
 locals {
   app_name = "ecs_deploy_gh_actions"
   gh_org_name = "sheikhasim"
 
-db_creds = jsondecode(
+creds = jsondecode(
     data.aws_secretsmanager_secret_version.creds.secret_string
   )
 
