@@ -13,14 +13,13 @@ on:
       
 jobs:
   tag_job:
-    #if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     environment:
         name: DEV
     outputs:
       img_tag: ${{steps.tag.outputs.tag}}
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v3
       with:
         ref: ${{ github.sha }}
         fetch-depth: '0'
@@ -28,7 +27,7 @@ jobs:
     - id: tag
       uses: anothrNick/github-tag-action@1.61.0 # Don't use @master unless you're happy to test the latest version
       env:
-        GH_TOKEN: ${{ secrets.GITHUBH_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
         
     - run: |
@@ -38,7 +37,7 @@ jobs:
     - id: release 
       uses: actions/create-release@v1
       env:
-        GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       with:
          tag_name: ${{steps.tag.outputs.tag}}
          release_name: Release ${{steps.tag.outputs.new_tag}}
