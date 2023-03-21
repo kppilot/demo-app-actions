@@ -19,3 +19,12 @@ creds = jsondecode(
   )
 
 }
+
+provider "aws"{
+  aws_access_key= locals.creds.AWS_ACCESS_KEY
+  aws_secret_key = locals.creds.AWS_SECRET_KEY
+  region = var.aws_region
+  default_tags {
+    application = local.app_name
+  }
+}
