@@ -5,4 +5,4 @@ tasks: deployment based on tags</br>
 security </br>
 skip duplicate workflow runs </br>
 forked from main</br>
-test for trunk based development
+test for trunk based development with commit message
