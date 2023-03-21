@@ -93,5 +93,5 @@ jobs:
    needs: terraform
    uses: ./.github/workflows/ecs-deploy.yml
    with:
-    "image_tag" : var.image_id
+    "image_tag" : var.image_tag
      
