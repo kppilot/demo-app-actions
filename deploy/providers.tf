@@ -19,12 +19,3 @@ creds = jsondecode(
   )
 
 }
-
-provider "aws" {
-  region = var.aws_region
-  default_tags {
-    tags = {
-      application = local.app_name
-    }
-  }
-}
