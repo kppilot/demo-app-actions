@@ -15,5 +15,5 @@ run_params:
         
         
       security_groups:
-             - vpc-0cf0871c50563aa7b
+             - sg-0883113f5616000a3
       assign_public_ip: ENABLED
