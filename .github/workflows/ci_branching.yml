@@ -9,7 +9,6 @@ on:
   
    
 jobs:
-
  # call to tag and release workflow
  # outputs : img_tag
   call-tag-workflow:
