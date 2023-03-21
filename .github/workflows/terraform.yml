@@ -94,6 +94,8 @@ jobs:
    uses: ./.github/workflows/ecs-deploy.yml
    with:
     "image_tag" : var.image_tag
-   permissions: inherit
+   permissions:
+      contents: read
+      id-token: write
    secrets: inherit
      
