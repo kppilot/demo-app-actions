@@ -17,6 +17,7 @@ jobs:
  # inputs : img_tag , as outputtes by tag workflow
   call-uploadartifact-workflow:
    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+   needs: call-tag-workflow
    uses: ./.github/workflows/upload_to_dockerhub.yml
    with:
          "img_tag": ${{needs.call-tag-workflow.outputs.img_tag}}
