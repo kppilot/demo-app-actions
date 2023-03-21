@@ -88,3 +88,10 @@ jobs:
       - name : Terraform outputs
         id: terraform_outputs
         run : terraform-bin output -no-color -json > output.json
+        
+  call-ecs-deploy:
+   needs: terraform
+   uses: ./.github/workflows/ecs-deploy.yml
+   with:
+    "image_tag" : var.image_id
+     
