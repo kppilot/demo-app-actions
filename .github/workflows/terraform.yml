@@ -93,7 +93,7 @@ jobs:
    needs: terraform
    uses: ./.github/workflows/ecs-deploy.yml
    with:
-    "image_tag" : var.image_tag
+    "image_tag" : "v2.1.0"
    permissions:
       contents: read
       id-token: write
