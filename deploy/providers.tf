@@ -10,6 +10,13 @@ terraform {
 locals {
   app_name = "ecs_deploy_gh_actions"
   gh_org_name = "sheikhasim"
+
+locals {
+  db_creds = jsondecode(
+    data.aws_secretsmanager_secret_version.creds.secret_string
+  )
+}
+
 }
 
 provider "aws" {
