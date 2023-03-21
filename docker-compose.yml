@@ -1,7 +1,7 @@
 version: "3"
 services:
   main:
-    image: v2.1.0
+    image: __IMAGE_NAME__
     ports: ["80:80"]
     logging:
       driver: awslogs
