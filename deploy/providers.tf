@@ -21,7 +21,7 @@ creds = jsondecode(
 }
 
 provider "aws" {
-  region = "ap-northeast-1"
+  region = var.aws_region
   default_tags {
     tags = {
       application = local.app_name
