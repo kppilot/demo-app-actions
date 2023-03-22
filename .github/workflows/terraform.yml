@@ -93,8 +93,8 @@ jobs:
       - name : Terraform outputs
         id: terraform_outputs
         run: |
-             IMAGE_VERSION =  "$(terraform output -raw image_version)"
-             echo ${{IMAGE_VERSION}} 
+             echo "image_version = $(terraform output -raw image_version)" >>$GITHUB_OUTPUT
+             
 
              
         
