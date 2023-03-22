@@ -22,7 +22,7 @@ resource "aws_ecs_task_definition" "td2" {
       }
     }
   ])
-  family                   = "app"
+  family                   = "td-app"
   requires_compatibilities = ["FARGATE"]
 
   cpu                = "256"

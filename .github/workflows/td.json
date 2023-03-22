@@ -27,7 +27,7 @@
             }
         }
     ],
-    "family": "app",
+    "family": "td-app",
     "taskRoleArn": "arn:aws:iam::628034938073:role/ecs_deploy_gh_actions-myservice_task",
     "executionRoleArn": "arn:aws:iam::628034938073:role/ecs_deploy_gh_actions-ecs_task_exec",
     "networkMode": "awsvpc",
