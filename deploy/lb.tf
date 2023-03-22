@@ -35,7 +35,7 @@ resource "aws_lb" "this" {
   name = replace("${local.app_name}", "_", "-")
   load_balancer_type = "application"
   security_groups = [
-    aws_security_group.app.id,
+    aws_security_group.alb.id,
   ]
   subnets = [
     aws_subnet.public_1.id,
