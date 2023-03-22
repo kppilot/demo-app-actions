@@ -16,7 +16,7 @@ resource "aws_ecs_task_definition" "td" {
         "logDriver":"awslogs",
         "options":{
             "awslogs-group": "/ecs_deploy_gh_actions_myservice",
-            "awslogs-region":"${var.region}",
+            "awslogs-region":"${var.aws_region}",
             "awslogs-stream-prefix":"ecs"
         }
       }
