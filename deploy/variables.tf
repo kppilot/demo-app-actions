@@ -4,3 +4,4 @@ variable "ecr_repo" {}
 variable "image_version" {
     type = string
 }
+

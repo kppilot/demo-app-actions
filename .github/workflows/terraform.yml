@@ -11,6 +11,8 @@ jobs:
   terraform:
     name: "Terraform"
     runs-on: ubuntu-latest
+     outputs:
+      image_version: ${{ steps.terraform_outputs.outputs.image_version }}
     defaults:
       run:
         working-directory: ./deploy
@@ -45,7 +47,6 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        #if: github.event_name == 'pull_request'
         run: terraform plan  -no-color -input=true 
         continue-on-error: true
 
@@ -91,7 +92,9 @@ jobs:
         
       - name : Terraform outputs
         id: terraform_outputs
-        run : terraform-bin output -no-color -json > output.json
+        run: |
+          IMAGE_VERSION=$(echo "terraform output -raw image_version")
+          echo "::set-output image_version=IMAGE_VERSION"
         
   call-to-deploy:
     needs: terraform
@@ -100,7 +103,7 @@ jobs:
        id-token: write
     uses: ./.github/workflows/deploy.yml
     with:
-      image_tag : "v2.1.0"
+      image_tag : ${{needs.terraform.outputs.image_version}}
     secrets: inherit
    
   
