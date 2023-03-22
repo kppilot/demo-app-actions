@@ -10,7 +10,7 @@ terraform {
   organization = "demoapp"
 
   workspaces {
-    name = "demoactionswp"
+    name = "demo-app"
   }
 }
 }
