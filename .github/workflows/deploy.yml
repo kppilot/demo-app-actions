@@ -1,6 +1,6 @@
 name: Deploy to Amazon ECS
 on:
-  workflow_call:
+  workflow_dispatch:
 env:
   AWS_REGION: ap-northeast-1
   ECS_CLUSTER: ecs_deploy_gh_actions
