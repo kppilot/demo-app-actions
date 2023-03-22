@@ -12,9 +12,7 @@ jobs:
     name: "Terraform"
     runs-on: ubuntu-latest
     outputs:
-      image_version:
-           type : string
-           value : ${{ steps.terraform_outputs.outputs.image_version }}
+      image_version: ${{ steps.terraform_outputs.outputs.image_version }}
     defaults:
       run:
         working-directory: ./deploy
