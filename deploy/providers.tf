@@ -5,7 +5,16 @@ terraform {
       version = "~> 4.59.0"
     }
   }
+
+  cloud {
+  organisation = "demoapp
+
+  workspaces {
+    name = "demoactionswp
+  }
 }
+}
+
 
 locals {
   app_name = "ecs_deploy_gh_actions"
