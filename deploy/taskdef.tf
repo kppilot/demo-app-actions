@@ -1,7 +1,7 @@
 resource "aws_ecs_task_definition" "td" {
   container_definitions = jsonencode([
     {
-      name         = "app"
+      name         = "td-app"
       image        = "${var.ACCOUNT_ID}.dkr.ecr.${var.aws_region}.amazonaws.com/${var.ecr_repo}"
       cpu          = 256
       memory       = 512
@@ -28,6 +28,6 @@ resource "aws_ecs_task_definition" "td" {
   cpu                = "256"
   memory             = "512"
   network_mode       = "awsvpc"
-  task_role_arn      = "arn:aws:iam::${var.ACCOUNT_ID}:role/ecs_deploy_gh_actions-ecs_task_exec"
+  task_role_arn      = "arn:aws:iam::${var.ACCOUNT_ID}:role/ecs_deploy_gh_actions-myservice_task"
   execution_role_arn = "arn:aws:iam::${var.ACCOUNT_ID}:role/ecs_deploy_gh_actions-ecs_task_exec"
 }
