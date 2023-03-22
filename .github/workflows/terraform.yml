@@ -12,7 +12,9 @@ jobs:
     name: "Terraform"
     runs-on: ubuntu-latest
     outputs:
-      image_version: ${{ steps.terraform_outputs.outputs.image_version }}
+      image_version:
+           type : string
+           value : "${{ steps.terraform_outputs.outputs.image_version }}"
     defaults:
       run:
         working-directory: ./deploy
@@ -93,7 +95,7 @@ jobs:
       - name : Terraform outputs
         id: terraform_outputs
         run: |
-          IMAGE_VERSION=$(echo "terraform output -raw image_version")
+          IMAGE_VERSION= " $(echo "terraform output -raw image_version") "
           echo "::set-output image_version=IMAGE_VERSION"
         
   call-to-deploy:
