@@ -23,7 +23,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::${{ env.ACCOUNT_ID }}:role/${{ env.APP_NAME }}-gh_actions
+          #role-to-assume: arn:aws:iam::${{ env.ACCOUNT_ID }}:role/${{ env.APP_NAME }}-gh_actions
+          role-to-assume: arn:aws:iam::628034938073:role/ecs_deploy_gh_actions-gh_actions
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Login to Amazon ECR
