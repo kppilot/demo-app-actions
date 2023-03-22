@@ -15,7 +15,7 @@ locals {
 
 provider "aws" {
   region = "ap-northeast-1"
-  profile = "kpilot"
+  profile = "default"
   default_tags {
     tags = {
       application = local.app_name
