@@ -49,6 +49,7 @@ jobs:
          DOCKER_REPOSITORY: sheikh111/demo-actions-repo
          IMAGE_TAG: ${{inputs.image_tag}}
         run: |
+          echo $DOCKER_REPOSITORY:$IMAGE_TAG
           docker pull $DOCKER_REPOSITORY:$IMAGE_TAG
           docker tag $DOCKER_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
