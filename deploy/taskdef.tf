@@ -1,4 +1,4 @@
-resource "aws_ecs_task_definition" "td1" {
+resource "aws_ecs_task_definition" "td2" {
   container_definitions = jsonencode([
     {
       name         = "td-app"
