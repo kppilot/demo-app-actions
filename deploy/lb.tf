@@ -35,7 +35,7 @@ resource "aws_lb" "this" {
   name = replace("${local.app_name}", "_", "-")
   load_balancer_type = "application"
   security_groups = [
-    aws_security_group.alb.id,
+    aws_security_group.app.id,
   ]
   subnets = [
     aws_subnet.public_1.id,
@@ -55,4 +55,12 @@ resource "aws_lb_listener" "http" {
       status_code = "503"
     }
   }
+}
+
+resource "aws_lb_target_group" "ip-example" {
+  name        = "lb-tg"
+  port        = 80
+  protocol    = "HTTP"
+  target_type = "ip"
+  vpc_id      = "${aws_vpc.this.id}"
 }
