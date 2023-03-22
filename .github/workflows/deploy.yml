@@ -1,6 +1,10 @@
 name: Deploy to Amazon ECS
 on:
   workflow_dispatch:
+     inputs:
+        image_tag:
+           required:true
+           type:string
 env:
   ACCOUNT_ID: 628034938073
   ACTION_ROLE: ecs_deploy_gh_actions-gh_actions
@@ -16,7 +20,9 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    environment: dev
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -45,7 +51,7 @@ jobs:
          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
          ECR_REPOSITORY: ${{ env.APP_NAME }}-${{ env.REPO_SVC}}
          DOCKER_REPOSITORY: sheikh111/demo-actions-repo
-         IMAGE_TAG: "v2.1.0"
+         IMAGE_TAG: ${{inputs.image_tag}}
         run: |
           docker pull $DOCKER_REPOSITORY:$IMAGE_TAG
           docker tag $DOCKER_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
@@ -63,7 +69,7 @@ jobs:
          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
          ECR_REPOSITORY: ${{ env.APP_NAME }}-${{ env.REPO_SVC}}
          DOCKER_REPOSITORY: sheikh111/demo-actions-repo
-         IMAGE_TAG: "v2.1.0"
+         IMAGE_TAG: ${{inputs.image_tag}}
         run: |
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
