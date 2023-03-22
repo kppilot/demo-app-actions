@@ -15,6 +15,5 @@ output "alb_public_dns"{
 }
 
 output "image_version" {
-  type = string
-  value = "var.image_version"
+  value = var.image_version
 }
