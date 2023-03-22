@@ -92,5 +92,17 @@ jobs:
         id: terraform_outputs
         run : terraform-bin output -no-color -json > output.json
         
+  call-to-deploy:
+   needs: terraform
+   uses: ./.github/workflows/deploy.yml
+   with:
+     image_tag : "v2.1.0"
+   secrets: inherit
+   permissions: 
+      contents: read
+      id-token: write
+  
+   
+        
   
      
