@@ -94,6 +94,8 @@ jobs:
         id: terraform_outputs
         run: |
              echo $(terraform-bin output -raw image_version)
+             img = $(terraform-bin output -raw image_version)
+             echo "image_version=img">>"$GITHUB_OUTPUT"
              
 
              
