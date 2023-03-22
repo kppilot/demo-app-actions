@@ -3,8 +3,8 @@ on:
   workflow_call:
      inputs:
         image_tag:
-           required:true
-           type:string
+           required: true
+           type: string
 env:
   ACCOUNT_ID: 628034938073
   ACTION_ROLE: ecs_deploy_gh_actions-gh_actions
