@@ -2,7 +2,7 @@ resource "aws_ecs_task_definition" "td1" {
   container_definitions = jsonencode([
     {
       name         = "td-app"
-      image        = "${var.ACCOUNT_ID}.dkr.ecr.${var.aws_region}.amazonaws.com/${var.ecr_repo}"
+      image        = "${var.ACCOUNT_ID}.dkr.ecr.${var.aws_region}.amazonaws.com/${var.ecr_repo}:${var.image_version}"
       cpu          = 256
       memory       = 512
       essential    = true

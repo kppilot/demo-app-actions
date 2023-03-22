@@ -23,7 +23,7 @@ locals {
 }
 
 provider "aws" {
-  region = "ap-northeast-1"
+  region = var.aws_region
   #profile = "test1"
   default_tags {
     tags = {
