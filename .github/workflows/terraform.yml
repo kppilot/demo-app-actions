@@ -94,9 +94,7 @@ jobs:
         
   call-ecs-deploy:
    needs: terraform
-   uses: ./.github/workflows/ecs-deploy.yml
-   with:
-    "image_tag" : "v2.1.0"
+   uses: ./.github/workflows/deploy.yml
    permissions:
       contents: read
       id-token: write
