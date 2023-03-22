@@ -7,10 +7,10 @@ terraform {
   }
 
   cloud {
-  organization = "demoapp
+  organization = "demoapp"
 
   workspaces {
-    name = "demoactionswp
+    name = "demoactionswp"
   }
 }
 }
