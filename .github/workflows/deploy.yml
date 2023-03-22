@@ -7,7 +7,7 @@ env:
   AWS_REGION: ap-northeast-1
   APP_NAME: ecs_deploy_gh_actions
   ECS_CLUSTER: ecs_deploy_gh_actions
-  CONTAINER_NAME: app
+  CONTAINER_NAME: td-app
   ECS_SERVICE: myservice
   ECS_TD: .github/workflows/td.json
 
