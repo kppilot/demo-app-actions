@@ -5,7 +5,7 @@ env:
   AWS_REGION: ap-northeast-1
   ECS_CLUSTER: ecs_deploy_gh_actions
   CONTAINER_NAME: app
-  ECS_SERVICE: app_service
+  ECS_SERVICE: ecs_deploy_gh_actions-myservice
   ECS_TD: .github/workflows/td.json
 
 jobs:
@@ -67,7 +67,7 @@ jobs:
         with:
           task-definition: ${{ env.ECS_TD }}
           container-name: ${{ env.CONTAINER_NAME }}
-          image: ${{ steps.build-image.outputs.image }}
+          image: ${{ steps.pull-image.outputs.image }}
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
