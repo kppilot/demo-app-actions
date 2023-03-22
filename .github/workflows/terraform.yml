@@ -92,11 +92,5 @@ jobs:
         id: terraform_outputs
         run : terraform-bin output -no-color -json > output.json
         
-  call-ecs-deploy:
-   needs: terraform
-   uses: ./.github/workflows/deploy.yml
-   permissions:
-      contents: read
-      id-token: write
-   secrets: inherit
+  
      
