@@ -64,3 +64,5 @@ resource "aws_lb_target_group" "ip-example" {
   target_type = "ip"
   vpc_id      = "${aws_vpc.this.id}"
 }
+
+resource "aws_lb_target_group_attachment" 
