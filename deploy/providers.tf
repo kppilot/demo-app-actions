@@ -24,7 +24,7 @@ locals {
 
 provider "aws" {
   region = "ap-northeast-1"
-  profile = "test1"
+  #profile = "test1"
   default_tags {
     tags = {
       application = local.app_name
