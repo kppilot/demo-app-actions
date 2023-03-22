@@ -99,7 +99,7 @@ resource "aws_ecs_service" "service" {
   deployment_maximum_percent         = 200
   deployment_minimum_healthy_percent = 100
   desired_count                      = 1
-  task_definition                    = aws_ecs_task_definition.td1.arn
+  task_definition                    = aws_ecs_task_definition.td2.arn
 
   network_configuration {
     assign_public_ip = true
