@@ -108,7 +108,7 @@ resource "aws_ecs_service" "service" {
   }
 
   load_balancer {
-    target_group_arn = aws_lb_target_group.mytargetgroup.id
+    target_group_arn = aws_lb_target_group.myservice.id
     container_name   = "td-app"
     container_port   = 80
   }

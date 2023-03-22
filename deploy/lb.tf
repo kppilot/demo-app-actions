@@ -56,13 +56,3 @@ resource "aws_lb_listener" "http" {
     }
   }
 }
-
-resource "aws_lb_target_group" "mytargetgroup" {
-  name        = "lb-tg"
-  port        = 80
-  protocol    = "HTTP"
-  target_type = "ip"
-  vpc_id      = "${aws_vpc.this.id}"
-  load_balancer_arn = aws_lb.this.arn
-
-}
