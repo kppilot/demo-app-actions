@@ -11,7 +11,15 @@ resource "aws_ecs_task_definition" "td" {
           containerPort = 80
           hostPort      = 80
         }
-      ]
+      ],
+      "logconfiguration":{
+        "logDriver":"awslogs",
+        "options":{
+            "awslogs-group": "/ecs_deploy_gh_actions_myservice",
+            "awslogs-region":"${var.region}",
+            "awslogs-stream-prefix":"ecs"
+        }
+      }
     }
   ])
   family                   = "app"
