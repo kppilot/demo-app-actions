@@ -8,7 +8,8 @@ env:
   APP_NAME: ecs_deploy_gh_actions
   ECS_CLUSTER: ecs_deploy_gh_actions
   CONTAINER_NAME: td-app
-  ECS_SERVICE: myservice
+  ECS_SERVICE: app_service
+  REPO_SVC: myservice
   ECS_TD: .github/workflows/td.json
 
 jobs:
@@ -42,7 +43,7 @@ jobs:
       - id: pull-image
         env:
          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-         ECR_REPOSITORY: ${{ env.APP_NAME }}-${{ env.ECS_SERVICE }}
+         ECR_REPOSITORY: ${{ env.APP_NAME }}-${{ env.REPO_SVC}}
          DOCKER_REPOSITORY: sheikh111/demo-actions-repo
          IMAGE_TAG: "v2.1.0"
         run: |
@@ -60,7 +61,7 @@ jobs:
       - id: push-image
         env:
          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-         ECR_REPOSITORY: ${{ env.APP_NAME }}-${{ env.ECS_SERVICE }}
+         ECR_REPOSITORY: ${{ env.APP_NAME }}-${{ env.REPO_SVC}}
          DOCKER_REPOSITORY: sheikh111/demo-actions-repo
          IMAGE_TAG: "v2.1.0"
         run: |
