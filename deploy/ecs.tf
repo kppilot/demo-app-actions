@@ -107,6 +107,15 @@ resource "aws_ecs_service" "service" {
     subnets          = [aws_subnet.public_1.id, aws_subnet.public_2.id]
   }
 
+  load_balancer {
+    target_group_arn = aws_lb_target_group.mytargetgroup.id
+    container_name   = "td-app"
+    container_port   = 80
+  }
+
+  depends_on = [aws_lb_listener.http]
+}
+
 }
 
 
