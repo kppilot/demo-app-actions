@@ -1,6 +1,11 @@
 name: ecs-deploy
 on: 
  workflow_dispatch:
+ workflow_call:
+    inputs:
+     image_tag:
+         required: true
+         type: string
 jobs:
   deploy:
     runs-on: ubuntu-20.04
@@ -42,7 +47,7 @@ jobs:
          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
          ECR_REPOSITORY: ${{ env.APP_NAME }}-${{ env.SVC_NAME }}
          DOCKER_REPOSITORY: sheikh111/demo-actions-repo
-         IMAGE_TAG: sha-ba78f21
+         IMAGE_TAG: ${{inputs.image_tag}}
         run: |
           docker pull $DOCKER_REPOSITORY:$IMAGE_TAG
           docker tag $DOCKER_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
@@ -60,7 +65,7 @@ jobs:
          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
          ECR_REPOSITORY: ${{ env.APP_NAME }}-${{ env.SVC_NAME }}
          DOCKER_REPOSITORY: sheikh111/demo-actions-repo
-         IMAGE_TAG: sha-ba78f21
+         IMAGE_TAG: ${{inputs.image_tag}}
         run: |
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
      

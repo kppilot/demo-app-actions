@@ -83,18 +83,19 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: | 
             terraform apply -input=true
-      - name : set variables
-        uses: ./.github/actions/setvars
-        with:
-          varFilePath: ./.github/variables/myvars.env
-      - run : |
-             echo "public_subnet_1_id= terraform output -raw aws_subnet_public_1.id" >> $GITHUB_ENV
-             echo ${{env.public_subnet_1_id}}
-            
-        #echo "public_subnet_2_id= terraform output -raw aws_subnet_public_2.id" >> $GITHUB_ENV
-        #echo "security_group_id = terraform output -raw aws_security_group.app.id" >> $GITHUB_ENV
              
         
       - name : Terraform outputs
         id: terraform_outputs
         run : terraform-bin output -no-color -json > output.json
+        
+  call-ecs-deploy:
+   needs: terraform
+   uses: ./.github/workflows/ecs-deploy.yml
+   with:
+    "image_tag" : "v2.1.0"
+   permissions:
+      contents: read
+      id-token: write
+   secrets: inherit
+     

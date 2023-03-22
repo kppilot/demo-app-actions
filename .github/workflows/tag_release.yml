@@ -1,0 +1,25 @@
+name: tag_release & upload
+on:
+  #push:
+   #branches:
+     #- main
+  #pull_request:
+    #types:
+       #- closed
+    #branches:
+        #- main
+  workflow_dispatch:
+        
+jobs:
+  call-tag-workflow:
+    uses: ./.github/workflows/tag.yml
+    secrets: inherit
+    
+  # call to upload artifact to registry workflow
+ # inputs : img_tag , as outputted by tag workflow
+  call-uploadartifact-workflow:
+   needs: call-tag-workflow
+   uses: ./.github/workflows/upload_to_dockerhub.yml
+   with:
+         "img_tag": ${{needs.call-tag-workflow.outputs.img_tag}}
+   secrets: inherit
