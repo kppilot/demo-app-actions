@@ -116,7 +116,7 @@ resource "aws_ecs_service" "service" {
   depends_on = [aws_lb_listener.http]
 }
 
-}
+
 
 
 ####################################################
