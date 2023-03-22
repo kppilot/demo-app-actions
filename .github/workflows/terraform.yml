@@ -41,6 +41,10 @@ jobs:
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
+        
+      - name : remove state
+        run: terrafrom state rm
+     
 
       - name: Terraform Plan
         id: plan
