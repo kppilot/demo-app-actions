@@ -76,14 +76,14 @@ jobs:
       - name: Download task definition
         id: download-task-definition
         run: |
-             aws ecs describe-task-definition --task-definition td-app --query taskDefinition > task-definition.json
+             aws ecs describe-task-definition --task-definition td-app > ./taskdef/taskdefinition.json
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def-1
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           #task-definition: ${{ env.ECS_TD }}
-          task_definition: task-definition.json
+          task_definition: ./taskdef/taskdefinition.json
           container-name: ${{ env.CONTAINER_NAME }}
           image: ${{ steps.pull-image.outputs.image }}
 
