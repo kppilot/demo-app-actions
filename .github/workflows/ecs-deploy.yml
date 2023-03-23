@@ -1,6 +1,5 @@
 name: ecs-deploy
-on: 
- workflow_dispatch:
+on:
  workflow_call:
     inputs:
      image_tag:
@@ -12,8 +11,6 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    #environment: 
-       #name: Staging
     env:
       ACCOUNT_ID: 628034938073
       REGION: ap-northeast-1
