@@ -12,6 +12,7 @@ on:
         
 jobs:
   call-tag-workflow:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     uses: ./.github/workflows/tag.yml
     secrets: inherit
     
