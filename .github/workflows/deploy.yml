@@ -83,7 +83,7 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           #task-definition: ${{ env.ECS_TD }}
-          task_definition: ./deploy/taskdef.json
+          task_definition: ./taskdef.json
           container-name: ${{ env.CONTAINER_NAME }}
           image: ${{ steps.pull-image.outputs.image }}
 
