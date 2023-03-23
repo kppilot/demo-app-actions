@@ -77,6 +77,8 @@ jobs:
         id: download-task-definition
         run: |
              aws ecs describe-task-definition --task-definition td-app > ./taskdef/taskdefinition.json
+      - name: edit taskdefinition.json
+        run: echo " `jq 'del(.taskDefinitionArn)' ./taskdef/taskdefinition.json " > ./taskdef/taskdefinition.json
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def-1
