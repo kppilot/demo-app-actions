@@ -6,7 +6,7 @@ tag_release.yml</br>
 upload_to_dockerhub.yml </br>
 
 # CD WORKFLOWS
-ecs-deploy.yml </br>
+deploy.yml </br>
 
 
 # TERRAFORM WORKFLOWS
