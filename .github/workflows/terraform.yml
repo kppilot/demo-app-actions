@@ -11,7 +11,7 @@ jobs:
       image_version: ${{ steps.terraform_outputs.outputs.image_version }}
     defaults:
       run:
-        working-directory: ./deploy
+        working-directory: ./terraform
     permissions:
       pull-requests: write
     steps:
