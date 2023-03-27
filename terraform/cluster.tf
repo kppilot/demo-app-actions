@@ -135,10 +135,6 @@ resource "null_resource" "push_docker_image" {
   }
 
   provisioner "local-exec" {
-    inline = [
-      "chmod +x commands/pull_push.sh",
-      "sudo commands/pull_push.sh",
-    ]
     command = "/bin/bash commands/pull_push.sh ${var.image_source}:${var.image_version} ${replace(aws_ecr_repository.myservice.repository_url, "https://", "")}:${var.image_version}"
   }
 }
