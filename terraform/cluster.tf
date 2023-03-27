@@ -134,7 +134,7 @@ resource "null_resource" "push_docker_image" {
     aws_ecr_repository_id = "${aws_ecr_repository.myservice.id}"
   }
 
-  provisioner "local-exec" {
-    command = "/bin/bash commands/pull_push.sh ${var.image_source}:${var.image_version} ${replace(aws_ecr_repository.myservice.repository_url, "https://", "")}:${var.image_version}"
-  }
+ provisioner "local-exec" {
+    command = "/bin/bash commands/pull_push.sh"
+    }
 }
