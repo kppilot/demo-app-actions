@@ -129,7 +129,7 @@ resource "aws_ecr_repository" "myservice" {
 }
 
 resource "null_resource" "push_docker_image" {
-  triggers {
+  triggers = {
     version               = "${var.image_version}"
     aws_ecr_repository_id = "${aws_ecr_repository.myservice.id}"
   }
