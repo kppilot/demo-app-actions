@@ -14,7 +14,6 @@ env:
   CONTAINER_NAME: td-app
   ECS_SERVICE: app_service
   REPO_SVC: myservice
-  ECS_TD: .github/workflows/td.json
 
 jobs:
   deploy:
