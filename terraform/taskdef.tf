@@ -28,6 +28,6 @@ resource "aws_ecs_task_definition" "td2" {
   cpu                = "256"
   memory             = "512"
   network_mode       = "awsvpc"
-  task_role_arn      = "arn:aws:iam::${var.ACCOUNT_ID}:role/ecs_deploy_gh_actions-myservice_task"
-  execution_role_arn = "arn:aws:iam::${var.ACCOUNT_ID}:role/ecs_deploy_gh_actions-ecs_task_exec"
+  task_role_arn      = "arn:aws:iam::${var.account_id}:role/ecs_deploy_gh_actions-myservice_task"
+  execution_role_arn = "arn:aws:iam::${var.account_id}:role/ecs_deploy_gh_actions-ecs_task_exec"
 }
