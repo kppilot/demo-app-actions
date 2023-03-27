@@ -10,7 +10,7 @@ on:
           outputs: 
             img_tag:
               value: ${{jobs.tag_job.outputs.img_tag}}
-              required: true
+            
       
 jobs:
   tag_job:
