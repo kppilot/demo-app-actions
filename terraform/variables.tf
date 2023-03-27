@@ -1,5 +1,5 @@
 variable "aws_region" {}
-variable "ACCOUNT_ID" {}
+variable "account_id" {}
 variable "ecr_repo" {}
 variable "image_version" {
     type = string
