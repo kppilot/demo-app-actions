@@ -42,6 +42,7 @@ jobs:
       with:
         tag: ${{steps.tag.outputs.new_tag}}
         token: ${{ secrets.GH_TOKEN }}
+        allowUpdates: true
         
 
       #uses: actions/create-release@v1
