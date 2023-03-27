@@ -30,18 +30,16 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         WITH_V: true
-        DEFAULT_BUMP: none
+        DEFAULT_BUMP: patch
+        INITIAL_VERSION: 23.0.0
         
     - run: |
           echo "img_tag = ${{steps.tag.outputs.tag}}" >> "$GITHUB_OUTPUT"
-          echo "im = ${{steps.tag.outputs.new_tag}}"
 
         
     - id: release
-      if:  ${{steps.tag.outputs.new_tag}}
       uses: ncipollo/release-action@v1
       with:
-        allowUpdates: false
         tag: ${{steps.tag.outputs.new_tag}}
         token: ${{ secrets.GH_TOKEN }}
         
