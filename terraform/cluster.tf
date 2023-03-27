@@ -135,6 +135,6 @@ resource "null_resource" "push_a3m_sentry_image" {
   }
 
   provisioner "local-exec" {
-    command = "/bin/bash commands/pull_push.sh ${var.image_source}:${var.image_version} ${replace(aws_ecr_repository.ecr_repo.repository_url, "https://", "")}:${var.image_version}"
+    command = "/bin/bash commands/pull_push.sh ${var.image_source}:${var.image_version} ${replace(aws_ecr_repository.myservice.repository_url, "https://", "")}:${var.image_version}"
   }
 }
