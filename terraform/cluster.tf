@@ -127,3 +127,14 @@ resource "aws_ecr_repository" "myservice" {
   name = "${local.app_name}-myservice"
   image_tag_mutability = "MUTABLE"
 }
+
+resource "null_resource" "push_docker_image" {
+  triggers {
+    version               = "${var.image_version}"
+    aws_ecr_repository_id = "${aws_ecr_repository.myservice.id}"
+  }
+
+  provisioner "local-exec" {
+    command = "/bin/bash commands/pull_push.sh ${var.image_source}:${var.image_version} ${replace(aws_ecr_repository.myservice.repository_url, "https://", "")}:${var.image_version}"
+  }
+}
