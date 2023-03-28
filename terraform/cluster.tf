@@ -141,5 +141,5 @@ resource "null_resource" "push_ecr_image" {
 
 resource "null_resource" "push_test_image" {
  provisioner "local-exec" {
-    command = "commands/test.sh
+    command = "commands/test.sh"
 }
