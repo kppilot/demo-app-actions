@@ -25,7 +25,7 @@ jobs:
       - name: install docker
         run: | 
              chmod +x ../terraform/install_docker.sh
-             chmod =X ../terraform/commands/pull_push.sh
+             chmod +x ../terraform/commands/pull_push.sh
              ../terraform/install_docker.sh
         shell: bash
 
