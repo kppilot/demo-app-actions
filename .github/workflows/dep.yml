@@ -22,7 +22,7 @@ jobs:
         run: |
            aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID}} --profile test1
            aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile test1
-           
+
       - name: file permissions
         env:
            USERNAME: ${{secrets.DOCKER_USERNAME}}
@@ -41,14 +41,14 @@ jobs:
              cat > backend.tf << EOF
              terraform {
              backend "remote" {
-             organization = "${secrets.TF_CLOUD_ORGANIZATION}"
+             organization = "demoapp"
 
              workspaces {
-              name = "${secrets.TF_CLOUD_WORKSPACE}"
-               }
-              }
-             }
-             EOF
+              name = "githubactions_demo"
+            }
+          }
+        }
+        EOF
   
       - name: Terraform Init
         id: init
