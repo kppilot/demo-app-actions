@@ -1,6 +1,6 @@
 # CI WORKFLOWS : 
 ci.yml </br>
-test.yml</br>
+linter-test.yml</br>
 build.yml </br>
 tag_release.yml</br>
 upload_to_dockerhub.yml </br>
