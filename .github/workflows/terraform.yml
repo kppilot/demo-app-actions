@@ -24,8 +24,8 @@ jobs:
            aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile test1
       - name: install docker
         env:
-           USERNAME: ${{DOCKER_USERNAME}}
-           PASSWORD: ${{DOCKER_PWD}}
+           USERNAME: ${{secrets.DOCKER_USERNAME}}
+           PASSWORD: ${{secrets.DOCKER_PWD}}
         run: | 
              chmod +x ../terraform/install_docker.sh
              chmod +x ../terraform/commands/pull_push.sh
