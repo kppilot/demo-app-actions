@@ -49,10 +49,11 @@ jobs:
               }
              }
              EOF
-  
+      - name : terraform login 
+        run: terraform login
+
       - name: Terraform Init
         id: init
-
         run: terraform init
       
       - name: Terraform Validate
