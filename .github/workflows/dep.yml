@@ -1,0 +1,67 @@
+name: "Terraform"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  terraform:
+    name: "Terraform"
+    runs-on: ubuntu-latest
+    outputs:
+      image_version: ${{ steps.terraform_outputs.outputs.image_version }}
+    defaults:
+      run:
+        working-directory: ./terraform
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: install docker
+        env:
+           USERNAME: ${{secrets.DOCKER_USERNAME}}
+           PASSWORD: ${{secrets.DOCKER_PWD}}
+        run: | 
+             chmod +x ../terraform/commands/install_docker.sh
+             chmod +x ../terraform/commands/pull_push.sh
+        shell: bash
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+        
+
+      
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+      
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
+     
+
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan  -no-color -input=true 
+        continue-on-error: true
+
+      
+
+      - name: Terraform Plan Status
+        if: steps.plan.outcome == 'failure'
+        run: exit 1
+
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main'
+        run: | 
+            terraform apply -input=true
+             
+        
+      - name : Terraform outputs
+        id: terraform_outputs
+        run: |
+             echo $(terraform-bin output -raw image_version)
+             echo "image_version=$(terraform-bin output -raw image_version)">>"$GITHUB_OUTPUT"
