@@ -8,4 +8,4 @@ tag: #major,#minor,#patch in commit message.</br>
 default_tag: #patch </br>
 major, minor, patch keywords can also be set to custom keywords </br>
 if no keyword matches in commit message , then use default tag.
-
+changes done 
