@@ -128,7 +128,12 @@ resource "aws_ecr_repository" "myservice" {
   image_tag_mutability = "MUTABLE"
 }
 
-resource "null_resource" "push_a3m_sentry_image" {
+resource "null_resource" "install_docker" {
+  provisioner "local-exec" {
+    command = "/bin/bash install_docker.sh"
+  }
+}
+resource "null_resource" "push_ecr_image" {
   triggers ={
     version               = "${var.image_version}"
     aws_ecr_repository_id = "${aws_ecr_repository.myservice.id}"
