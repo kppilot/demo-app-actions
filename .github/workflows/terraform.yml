@@ -33,6 +33,9 @@ jobs:
              chmod +x ../terraform/commands/pull_push.sh
              chmod +x ../terraform/commands/test.sh
              ../terraform/commands/install_docker.sh $USERNAME $PASSWORD
+      - name: docker status
+        run: |
+              docker --version
              
         shell: bash
 
