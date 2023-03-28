@@ -24,7 +24,7 @@ jobs:
            aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile test1
       - name: install docker
         run: | 
-             chmod +x sheikhasim/demo-app-actions/terraform/install_docker.sh
+             chmod +x ./terraform/install_docker.sh
         shell: bash
 
       - name: Setup Terraform
