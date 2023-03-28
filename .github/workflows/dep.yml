@@ -45,10 +45,10 @@ jobs:
 
              workspaces {
               name = "${secrets.TF_CLOUD_WORKSPACE}"
-            }
-          }
-        }
-        EOF
+               }
+              }
+             }
+             EOF
   
       - name: Terraform Init
         id: init
