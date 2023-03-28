@@ -22,7 +22,8 @@ jobs:
         run: |
            aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID}} --profile test1
            aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile test1
-      - name: install docker
+           
+      - name: file permissions
         env:
            USERNAME: ${{secrets.DOCKER_USERNAME}}
            PASSWORD: ${{secrets.DOCKER_PWD}}
@@ -33,11 +34,22 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
+
+      - name: Setup Terraform Backend
+        id: backend
+        run: |
+             cat > backend.tf << EOF
+             terraform {
+             backend "remote" {
+             organization = "${secrets.TF_CLOUD_ORGANIZATION}"
+
+             workspaces {
+              name = "${secrets.TF_CLOUD_WORKSPACE}"
+            }
+          }
+        }
+        EOF
   
-        
-
-      
-
       - name: Terraform Init
         id: init
 

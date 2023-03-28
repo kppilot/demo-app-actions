@@ -1,16 +1,9 @@
 terraform {
   required_providers {
-    aws = {
+       aws = {
       source = "hashicorp/aws"
       version = "~> 4.59.0"
-    }
-
-    docker = {
-      source  = "kreuzwerker/docker"
-      version = "3.0.2"
-    }
-  }
- 
+      }
 }
 
 
@@ -19,11 +12,6 @@ locals {
   gh_org_name = "sheikhasim"
 
 }
-
-provider "docker" {
-  host = "unix:///var/run/docker.sock"
-}
-
 
 provider "aws" {
   region = var.aws_region
