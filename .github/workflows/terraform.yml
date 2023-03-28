@@ -25,6 +25,7 @@ jobs:
       - name: install docker
         run: | 
              chmod +x ../terraform/install_docker.sh
+             ../terraform/install_docker.sh
         shell: bash
 
       - name: Setup Terraform
