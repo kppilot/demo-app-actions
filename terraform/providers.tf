@@ -5,6 +5,12 @@ terraform {
       version = "~> 4.59.0"
       }
 }
+
+backend "s3" {
+    bucket = "demoapp_bucket"
+    key    = "state/terraform.tfstate"
+    region = var.aws_region
+  }
 }
 
 
