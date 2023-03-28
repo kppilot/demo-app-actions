@@ -4,6 +4,11 @@ terraform {
       source = "hashicorp/aws"
       version = "~> 4.59.0"
     }
+
+    docker = {
+      source  = "kreuzwerker/docker"
+      version = "3.0.2"
+    }
   }
 
   cloud {
@@ -20,6 +25,10 @@ locals {
   app_name = "ecs_deploy_gh_actions"
   gh_org_name = "sheikhasim"
 
+}
+
+provider "docker" {
+  host = "unix:///var/run/docker.sock"
 }
 
 provider "aws" {
