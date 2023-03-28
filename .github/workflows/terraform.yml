@@ -27,6 +27,7 @@ jobs:
              chmod +x ../terraform/install_docker.sh
              chmod +x ../terraform/commands/pull_push.sh
              ../terraform/install_docker.sh
+             docker login -u ${{DOCKER_USERNAME}} -p ${{DOCKER_PWD}}
         shell: bash
 
       - name: Setup Terraform
