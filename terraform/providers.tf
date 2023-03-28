@@ -10,6 +10,7 @@ backend "s3" {
     bucket = "demoapp_bucket"
     key    = "state/terraform.tfstate"
     region = "ap-northeast-2"
+    profile = "test1"
   }
 }
 
@@ -22,8 +23,8 @@ locals {
 
 provider "aws" {
   region = var.aws_region
-  access_key = "AKIAZEOOMUTM5GDEMEHP"
-  secret_key = "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"
+  profile = "test1"
+  
    
   default_tags {
     tags = {
