@@ -29,7 +29,7 @@ jobs:
         run: | 
              chmod +x ../terraform/install_docker.sh
              chmod +x ../terraform/commands/pull_push.sh
-             ../terraform/install_docker.sh
+             ../terraform/install_docker.sh $USERNAME $PASSWORD
              
         shell: bash
 
