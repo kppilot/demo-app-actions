@@ -27,7 +27,7 @@ jobs:
            USERNAME: ${{secrets.DOCKER_USERNAME}}
            PASSWORD: ${{secrets.DOCKER_PWD}}
         run: | 
-             chmod +x ../terraform/install_docker.sh
+             chmod +x ../terraform/commands/install_docker.sh
              chmod +x ../terraform/commands/pull_push.sh
              ../terraform/install_docker.sh $USERNAME $PASSWORD
              
