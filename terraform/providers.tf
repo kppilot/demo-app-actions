@@ -27,8 +27,8 @@ provider "docker" {
 
 provider "aws" {
   region = var.aws_region
-   access_key = "AKIAZEOOMUTM24GMWVY7"
-  secret_key = "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"
+   access_key = "AKIAZEOOMUTMQPG5OR7I"
+  secret_key = "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"
   default_tags {
     tags = {
       application = local.app_name
