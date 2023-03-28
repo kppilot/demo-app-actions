@@ -45,10 +45,10 @@ jobs:
 
              workspaces {
               name = "githubactions_demo"
-            }
-          }
-        }
-        EOF
+               }
+              }
+             }
+             EOF
   
       - name: Terraform Init
         id: init
