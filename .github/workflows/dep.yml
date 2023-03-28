@@ -17,6 +17,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+       - name: Add profile credentials to ~/.aws/credentials
+        run: |
+           aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID}} --profile test1
+           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile test1
       - name: install docker
         env:
            USERNAME: ${{secrets.DOCKER_USERNAME}}
@@ -28,8 +33,7 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
-        with:
-          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+  
         
 
       
