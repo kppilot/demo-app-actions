@@ -11,14 +11,6 @@ terraform {
     }
   }
 
-  cloud {
-  organization = "demoapp"
-
-  workspaces {
-    name = "demo-app"
-  }
-}
-}
 
 
 locals {
