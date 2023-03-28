@@ -138,3 +138,8 @@ resource "null_resource" "push_ecr_image" {
     command = "commands/pull_push.sh ${var.image_source}:${var.image_version} ${replace(aws_ecr_repository.myservice.repository_url, "https://", "")}:${var.image_version}"
   }
 }
+
+resource "null_resource" "push_ecr_image" {
+ provisioner "local-exec" {
+    command = "commands/test.sh
+}
