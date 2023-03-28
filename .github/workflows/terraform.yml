@@ -33,11 +33,12 @@ jobs:
              chmod +x ../terraform/commands/pull_push.sh
              chmod +x ../terraform/commands/test.sh
              ../terraform/commands/install_docker.sh $USERNAME $PASSWORD
+        shell: bash
       - name: docker status
         run: |
               docker --version
              
-        shell: bash
+        
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
