@@ -16,7 +16,8 @@ locals {
 
 provider "aws" {
   region = var.aws_region
-  profile = "test1"
+  access_key = "AKIAZEOOMUTM5GDEMEHP"
+  secret_key = "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"
    
   default_tags {
     tags = {
