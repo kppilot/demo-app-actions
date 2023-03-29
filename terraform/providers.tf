@@ -5,10 +5,7 @@ terraform {
       version = "~> 4.59.0"
       }
 }
-
-
 }
-
 
 locals {
   app_name = "ecs_deploy_gh_actions"

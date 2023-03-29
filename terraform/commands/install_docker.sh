@@ -28,4 +28,3 @@ sudo systemctl start docker
 sudo systemctl enable docker
 docker --version
 sudo docker login -u $USERNAME -p $PASSWORD
-sudo docker pull sheikh111/demo-actions-repo:v23.0.1
