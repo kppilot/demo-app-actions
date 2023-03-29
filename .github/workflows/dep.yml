@@ -84,11 +84,11 @@ jobs:
       - name: Wait for approval
         uses: trstringer/manual-approval@v1
         with:
-         secret: ${{ github.TOKEN }}
+         secret: ${{secrets.GH_TOKEN }}
          approvers: kppilot
          minimum-approvals: 1
          issue-title: "Approve deployment in ${{ github.ref_name }}"
-         exclude-workflow-initiator-as-approver: false
+         exclude-workflow-initiator-as-approver: true
          timeout-minutes: 10
 
       - name: Terraform Apply
