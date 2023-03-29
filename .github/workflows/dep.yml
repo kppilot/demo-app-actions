@@ -83,15 +83,15 @@ jobs:
         if: steps.plan.outcome == 'failure'
         run: exit 1
       
-      - name: Wait for approval
-        uses: trstringer/manual-approval@v1
-        with:
-         secret: ${{secrets.GH_TOKEN }}
-         approvers: kppilot
-         minimum-approvals: 1
-         issue-title: "Approve deployment in ${{ github.ref_name }}"
-         exclude-workflow-initiator-as-approver: true
-         timeout-minutes: 10
+      #- name: Wait for approval
+        #uses: trstringer/manual-approval@v1
+        #with:
+         #secret: ${{secrets.GH_TOKEN }}
+         #approvers: kppilot
+         #minimum-approvals: 1
+         #issue-title: "Approve deployment in ${{ github.ref_name }}"
+         #exclude-workflow-initiator-as-approver: true
+         #timeout-minutes: 10
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
