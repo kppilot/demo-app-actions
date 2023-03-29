@@ -13,15 +13,22 @@ jobs:
       run:
         working-directory: ./terraform
     permissions:
-      pull-requests: write
+      id-token: write # This is required for aws oidc connection
+      contents: read # This is required for actions/checkout
+      pull-requests: write # This is required for gh bot to comment PR
+    env:
+     TF_LOG: INFO
+     AWS_REGION: ${{ secrets.AWS_REGION }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Add profile credentials to ~/.aws/credentials
-        run: |
-           aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID}} --profile test1
-           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile test1
+      - name: Configure AWS credentials from AWS account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE }}
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-session-name: GitHub-OIDC-TERRAFORM
 
       - name: file permissions
         env:
