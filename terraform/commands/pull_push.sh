@@ -6,6 +6,7 @@ DEST=$2
 
 echo $SOURCE
 echo $DEST
+aws-cli --version
 sudo usermod -aG docker runner
 sudo docker pull $SOURCE 
 sudo docker tag $SOURCE 628034938073.dkr.ecr.ap-northeast-2.amazonaws.com/ecs_deploy_gh_actions-myservice:v23.0.1
