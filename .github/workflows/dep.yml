@@ -65,10 +65,10 @@ jobs:
           AWS_BUCKET_KEY_NAME: ${{ secrets.AWS_BUCKET_KEY}}
         run: terraform init -backend-config="bucket=${AWS_BUCKET_NAME}" -backend-config="key=${AWS_BUCKET_KEY_NAME}" -backend-config="region=${AWS_REGION}"
 
-      #- name: Terraform destroy
-        #run: |
-             #terraform destroy -auto-approve
-             #exit 1
+      - name: Terraform destroy
+        run: |
+             terraform destroy -auto-approve
+             exit 1
 
       - name: Terraform Validate
         id: validate
