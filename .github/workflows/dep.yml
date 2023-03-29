@@ -5,20 +5,26 @@ on:
 
 jobs:
   terraform:
+
     name: "Terraform"
     runs-on: ubuntu-latest
+
     outputs:
       image_version: ${{ steps.terraform_outputs.outputs.image_version }}
+
     defaults:
       run:
         working-directory: ./terraform
+
     permissions:
       id-token: write # This is required for aws oidc connection
       contents: read # This is required for actions/checkout
       pull-requests: write # This is required for gh bot to comment PR
+
     env:
      #TF_LOG: INFO
      AWS_REGION: ${{ secrets.AWS_REGION }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -56,26 +62,20 @@ jobs:
           AWS_BUCKET_NAME: ${{ secrets.AWS_BUCKET}}
           AWS_BUCKET_KEY_NAME: ${{ secrets.AWS_BUCKET_KEY}}
         run: terraform init -backend-config="bucket=${AWS_BUCKET_NAME}" -backend-config="key=${AWS_BUCKET_KEY_NAME}" -backend-config="region=${AWS_REGION}"
+
       - name: Terraform destroy
         run: |
              terraform destroy -auto-approve
              exit 1
-      - name: Terraform destroy
-        run: |
-             terraform destroy
-             exit 1  
+
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
-
-      
 
       - name: Terraform Plan
         id: plan
         run: terraform plan  -no-color -input=true 
         continue-on-error: true
-
-      
 
       - name: Terraform Plan Status
         if: steps.plan.outcome == 'failure'
