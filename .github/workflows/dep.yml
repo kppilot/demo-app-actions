@@ -45,9 +45,6 @@ jobs:
           role-session-name: GitHub-OIDC-TERRAFORM
 
       - name: file permissions
-        env:
-           USERNAME: ${{secrets.DOCKER_USERNAME}}
-           PASSWORD: ${{secrets.DOCKER_PWD}}
         run: | 
              chmod +x ../terraform/commands/install_docker.sh
              chmod +x ../terraform/commands/pull_push.sh
