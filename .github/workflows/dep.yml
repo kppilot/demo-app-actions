@@ -67,7 +67,7 @@ jobs:
         run: | 
              chmod +x ../terraform/commands/install_docker.sh
              chmod +x ../terraform/commands/pull_push.sh
-          #../terraform/commands/pull_push.sh $SOURCE
+             ../terraform/commands/pull_push.sh $SOURCE
             
         shell: bash
 
