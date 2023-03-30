@@ -15,7 +15,7 @@ locals {
 
 provider "aws" {
   region = var.aws_region
-  assume_role {
+  assume_role = {
     role_arn :"arn:aws:iam::628034938073:role/github_actions_role"
   }
  
