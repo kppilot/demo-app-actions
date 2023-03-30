@@ -53,7 +53,7 @@ jobs:
         run: | 
              chmod +x ../terraform/commands/install_docker.sh
              chmod +x ../terraform/commands/pull_push.sh
-             exit 1
+            
         shell: bash
 
       - name: Setup Terraform
