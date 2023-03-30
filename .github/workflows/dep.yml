@@ -52,7 +52,7 @@ jobs:
       - name: file permissions
         env:
          SOURCE: sheikh111/demo-actions-repo:v23.0.1
-         AWS_TOKEN: {{secrets.AWS_TOKEN}}
+         AWS_TOKEN: "{{secrets.AWS_TOKEN}}"
         run: | 
              chmod +x ../terraform/commands/install_docker.sh
              chmod +x ../terraform/commands/pull_push.sh
