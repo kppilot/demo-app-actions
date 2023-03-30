@@ -36,12 +36,13 @@ jobs:
             # rm /tmp/awscliv2.zip
              #sudo /tmp/aws/install --update
              #rm -rf /tmp/aws/
-             
+
       - name: Install AWS CLI second approach 
         run: |
-              curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-              unzip awscliv2.zip
-              sudo ./aws/install
+           sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
+     #curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    #unzip awscliv2.zip
+    #sudo ./aws/install
              
       #- name: Add profile credentials to ~/.aws/credentials
         #run: |
