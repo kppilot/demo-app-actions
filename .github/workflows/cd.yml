@@ -46,10 +46,10 @@ jobs:
         id: init
         run: terraform init 
 
-      #- name: Terraform destroy
-        #run: |
-             #terraform destroy -auto-approve
-             #exit 1
+      - name: Terraform destroy
+        run: |
+             terraform destroy -auto-approve
+             exit 1
 
       - name: Terraform Validate
         id: validate
