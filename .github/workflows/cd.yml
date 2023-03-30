@@ -1,4 +1,4 @@
-name: "Terraform_test"
+name: "Deployment"
 
 on:
   workflow_dispatch:
