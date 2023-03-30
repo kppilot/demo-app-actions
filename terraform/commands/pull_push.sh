@@ -2,7 +2,7 @@
 
 
 SOURCE=$1
-TOKEN = $2
+TOKEN=$2
 #DEST=$2
 
 
