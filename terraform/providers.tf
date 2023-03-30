@@ -15,10 +15,6 @@ locals {
 
 provider "aws" {
   region = var.aws_region
-  #assume_role_with_web_identity {
-    #role_arn = "arn:aws:iam::628034938073:role/github_actions_role"
-  }
- 
   default_tags {
     tags = {
       application = local.app_name
