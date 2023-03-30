@@ -58,7 +58,8 @@ jobs:
           role-to-assume: arn:aws:iam::628034938073:role/github_actions_role #${{ secrets.AWS_ROLE }}
           role-session-name: GitHub-OIDC-TERRAFORM
           aws-region: ${{secrets.AWS_REGION}}
-          mask-aws-account-id: false    
+          mask-aws-account-id: false
+          mask-aws-region: false    
 
       - name: file permissions
         env:
