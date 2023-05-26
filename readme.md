@@ -10,5 +10,6 @@ major, minor, patch keywords can also be set to custom keywords </br>
 if no keyword matches in commit message , then use default tag.
 changes done
 test one
+test two
 
 [![CI](https://github.com/sheikhasim/demo-app-actions/actions/workflows/ci.yml/badge.svg)](https://github.com/sheikhasim/demo-app-actions/actions/workflows/ci.yml)
