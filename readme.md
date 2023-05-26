@@ -11,5 +11,6 @@ if no keyword matches in commit message , then use default tag.
 changes done
 test one
 test two
+test three
 
 [![CI](https://github.com/sheikhasim/demo-app-actions/actions/workflows/ci.yml/badge.svg)](https://github.com/sheikhasim/demo-app-actions/actions/workflows/ci.yml)
