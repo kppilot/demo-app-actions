@@ -9,5 +9,6 @@ collaborator can mention #major,#minor,#patch in commit message.</br>
 major, minor, patch keywords can also be set to custom keywords </br>
 if no keyword matches in commit message , then use default tag.
 changes done
+test one
 
 [![CI](https://github.com/sheikhasim/demo-app-actions/actions/workflows/ci.yml/badge.svg)](https://github.com/sheikhasim/demo-app-actions/actions/workflows/ci.yml)
