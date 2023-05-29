@@ -3,7 +3,8 @@
 name: Check Schema
 
 # Controls when the action will run. Triggers the workflow on push or pull request events
-on: [push, pull_request]
+#on: [push, pull_request]
+on: workflow_dispatch
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
