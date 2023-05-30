@@ -1,0 +1,44 @@
+name: Code Format Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  format_check:
+    name: Code Format Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: 11
+
+      - name: Install Checkstyle
+        run: |
+          wget https://github.com/checkstyle/checkstyle/releases/download/checkstyle-8.44/checkstyle-8.44-all.jar
+          export CHECKSTYLE_JAR=$(pwd)/checkstyle-8.44-all.jar
+
+      - name: Code Formatting Check
+        run: java -jar $CHECKSTYLE_JAR -c checkstyle.xml src/
+
+      - name: Check for code formatting errors
+        id: format_check
+        run: |
+          output=$(java -jar $CHECKSTYLE_JAR -c checkstyle.xml src/ 2>&1)
+          if [ -n "$output" ]; then
+            echo "$output"
+            echo "::set-output name=has_errors::true"
+          fi
+
+      - name: Fail if code formatting errors found
+        if: steps.format_check.outputs.has_errors == 'true'
+        run: exit 1
