@@ -33,7 +33,7 @@ jobs:
         env:
          GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
         with:
-          images: sheikh111/demo-actions-repo
+          images: sheikh111/demo-actions-repo:${{ github.ref }}
 
       
       - name: Build and push Docker image
