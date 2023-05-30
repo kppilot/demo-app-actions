@@ -1,0 +1,34 @@
+# to be configured
+name: Publish Docker image to Artifactory
+
+on:
+  push:
+    tags:
+      - '*'
+  workflow_dispatch:
+
+jobs:
+  push_to_artifactory:
+    name: Push Docker image to Artifactory
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+
+      - name: Set up JFrog CLI
+        run: |
+          curl -fL https://getcli.jfrog.io | sh
+          export PATH=$PATH:$HOME/.jfrog/jfrog
+
+      - name: Log in to Artifactory
+        run: |
+          jfrog rt c --interactive=false --url ${{ secrets.ARTIFACTORY_URL }} --user ${{ secrets.ARTIFACTORY_USERNAME }} --password ${{ secrets.ARTIFACTORY_PASSWORD }}
+      
+      - name: Extract tag name
+        id: extract_tag
+        run: echo "::set-output name=tag::${GITHUB_REF/refs\/tags\//}"
+      
+      - name: Build and push Docker image to Artifactory
+        run: |
+          docker build -t your-image-name:${{ steps.extract_tag.outputs.tag }} .
+          jfrog rt docker-push your-image-name:${{ steps.extract_tag.outputs.tag }} your-artifactory-repo --build-name=my-build --build-number=${{ github.run_number }} --url ${{ secrets.ARTIFACTORY_URL }} --user ${{ secrets.ARTIFACTORY_USERNAME }} --password ${{ secrets.ARTIFACTORY_PASSWORD }}
