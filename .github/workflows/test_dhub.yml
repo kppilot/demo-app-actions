@@ -26,4 +26,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ github.ref }}
+          tags: sheikh111/demo-actions-repo:${{ github.ref }}
