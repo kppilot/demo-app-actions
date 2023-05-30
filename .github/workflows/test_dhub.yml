@@ -22,7 +22,9 @@ jobs:
 
       - name: Extract tag name
         id: extract_tag
-        run: echo "::set-output name=tag::${{ github.ref }}"
+        run: echo "::set-output name=tag::${GITHUB_REF/refs\/tags\//}"
+        env:
+          GITHUB_REF: ${{ github.ref }}
       
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
