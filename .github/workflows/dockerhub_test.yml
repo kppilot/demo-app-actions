@@ -30,8 +30,10 @@ jobs:
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v4
+        env:
+         GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
         with:
-          images: sheikh111/demo-actions-repo
+          images: ${{vars.DOCKER_IMAGE}}
 
       
       - name: Build and push Docker image
