@@ -1,3 +1,5 @@
+# to be configured
+#requires checkstyle.xml file in repo
 name: Code Format Check
 
 on:
