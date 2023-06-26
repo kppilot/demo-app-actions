@@ -1,0 +1,83 @@
+name: CI
+
+on:
+  #push:
+    #b#ranches:
+      #- "main"
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: "Run pre-commit checks"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v4
+        with:
+          cache: 'pip'
+          cache-dependency-path: .pre-commit-dependencies.txt
+      - run: pip install -r .pre-commit-dependencies.txt
+      - run: pre-commit run --show-diff-on-failure --all-files
+
+  build:
+    name: "Run tests"
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+
+    - name: Setup Maven Config
+      run: jf mvn-config --repo-resolve-releases syncron-maven --repo-resolve-snapshots syncron-maven --server-id-resolve syncron-artifactory
+
+    - name: Setup JDK
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'  # Use latest major version for now, but this is a bug in the action
+        distribution: 'corretto'
+        cache: 'maven'
+
+    - name: Setup Maven Tool
+      uses: stCarolas/setup-maven@v4.5
+      with:
+        maven-version: 3.8.2
+
+    - name: Build with Maven
+      run: |
+        jf mvn --batch-mode --show-version \
+          clean verify -Pcode-coverage
+
+    - name: Archive Test Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: '**/target/**/TEST-*.xml'
+
+    - name: Archive Test Coverage
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-coverage
+        path: '**/target/**/jacoco.xml'
+
+    - name: Publish Test Report
+      uses: mikepenz/action-junit-report@v3
+      if: always() # always run even if the previous step fails
+      with:
+        report_paths: '**/target/**/TEST-*.xml'
+        require_tests: true
+
+    - name: Find coverage reports
+      id: list-coverage-reports
+      if: always()
+      run: python -c 'from glob import *; print("paths=" + ",".join(glob("**/jacoco.xml",recursive=True)))' >> $GITHUB_OUTPUT
+
+    - name: Add coverage to PR
+      id: jacoco
+      uses: madrapps/jacoco-report@v1.3
+      with:
+        paths: ${{ steps.list-coverage-reports.outputs.paths }}
+        token: ${{ secrets.GITHUB_TOKEN }}
